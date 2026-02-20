@@ -72,9 +72,28 @@
         -webkit-tap-highlight-color: transparent;
       }
     </style>
+    <!-- Meta Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+  
+    fbq('init', '1220773276915671'); 
+    fbq('track', 'PageView');
+  </script>
+  <!-- End Meta Pixel Code -->
   </head>
 
   <body class="min-h-screen bg-brand-bg text-brand-white">
+    <noscript>
+        <img height="1" width="1" style="display:none"
+             src="https://www.facebook.com/tr?id=1220773276915671&ev=PageView&noscript=1"/>
+      </noscript>
     <!-- BG decor -->
     <div class="pointer-events-none fixed inset-0">
       <div class="absolute inset-0 bg-[radial-gradient(70%_50%_at_50%_20%,rgba(55,160,238,.22)_0%,rgba(16,16,16,0)_60%)]"></div>
@@ -193,8 +212,18 @@
             "Sim, está excelente",
           ],
           key: "vendas_hoje",
-          next: (a) => (a === "Sim, está excelente" ? "q1b" : "q2"),
+          next: (a) => (a === "Sim, está excelente" ? "q1b" : "qImg"),
         },
+        {
+            id: "qImg",
+            type: "choice",
+            stage: "Consciência do problema",
+            question: "Você gostaria de atingir resultados como esse?",
+            image: "https://res.cloudinary.com/dmnxpy5zt/image/upload/v1771618072/WhatsApp_Image_2026-02-20_at_15.58.46_bjmtvw.jpg",
+            options: ["Sim", "Não", "CLARO!"],
+            key: "quer_resultado_exemplo",
+            next: () => "q2",
+          },
         {
           id: "q1b",
           type: "choice",
@@ -530,10 +559,25 @@
         }
 
         if (step.type === "choice") {
-          const bodyHtml = `
+            const bodyHtml = `
+            ${
+              step.image
+                ? `
+                  <div class="mt-5">
+                    <img
+                      src="${escapeHtml(step.image)}"
+                      alt="Resultado"
+                      class="w-full rounded-2xl object-cover ring-1 ring-brand-line shadow-[0_16px_40px_rgba(0,0,0,0.35)]"
+                    />
+                  </div>
+                `
+                : ""
+            }
+          
             <div class="mt-5 grid gap-2">
               ${step.options.map((o, i) => optionButton(o, i)).join("")}
             </div>
+          
             <p class="mt-4 text-xs text-brand-white/45">
               Toque em uma opção para continuar.
             </p>
