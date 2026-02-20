@@ -1,0 +1,807 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CZ Mídia</title>
+    <link rel="icon" href="https://res.cloudinary.com/dmnxpy5zt/image/upload/v1771612585/czmidialogo_nepata.png" sizes="any">
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Paleta baseada na imagem (preto/azul/branco + cinza) -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                bg: "#101010",
+                surface: "#141414",
+                surface2: "#1A1A1A",
+                blue: "#37A0EE",
+                blue2: "#2B8FE0",
+                white: "#F7F7F7",
+                muted: "#5B6F7D",
+                line: "rgba(255,255,255,.10)",
+              },
+            },
+            boxShadow: {
+              glow: "0 0 0 1px rgba(55,160,238,.35), 0 12px 40px rgba(0,0,0,.55)",
+            },
+            keyframes: {
+              enter: {
+                "0%": { opacity: "0", transform: "translateY(10px) scale(.99)" },
+                "100%": { opacity: "1", transform: "translateY(0) scale(1)" },
+              },
+              exit: {
+                "0%": { opacity: "1", transform: "translateY(0) scale(1)" },
+                "100%": { opacity: "0", transform: "translateY(-8px) scale(.99)" },
+              },
+              shake: {
+                "0%,100%": { transform: "translateX(0)" },
+                "20%": { transform: "translateX(-6px)" },
+                "40%": { transform: "translateX(6px)" },
+                "60%": { transform: "translateX(-4px)" },
+                "80%": { transform: "translateX(4px)" },
+              },
+              pulseSoft: {
+                "0%,100%": { opacity: ".45" },
+                "50%": { opacity: ".9" },
+              },
+            },
+            animation: {
+              enter: "enter .35s ease-out both",
+              exit: "exit .25s ease-in both",
+              shake: "shake .28s ease-in-out",
+              pulseSoft: "pulseSoft 2.5s ease-in-out infinite",
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      /* Suaviza fontes e scroll */
+      html {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      /* Remove highlight azul padrão mobile em botões */
+      button,
+      a {
+        -webkit-tap-highlight-color: transparent;
+      }
+    </style>
+  </head>
+
+  <body class="min-h-screen bg-brand-bg text-brand-white">
+    <!-- BG decor -->
+    <div class="pointer-events-none fixed inset-0">
+      <div class="absolute inset-0 bg-[radial-gradient(70%_50%_at_50%_20%,rgba(55,160,238,.22)_0%,rgba(16,16,16,0)_60%)]"></div>
+      <div class="absolute -top-24 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-brand-blue/10 blur-3xl animate-pulseSoft"></div>
+      <div class="absolute -bottom-24 right-[-60px] h-72 w-72 rounded-full bg-brand-blue/10 blur-3xl"></div>
+    </div>
+
+    <main class="relative mx-auto flex min-h-screen max-w-[520px] flex-col px-4 pb-10 pt-6">
+      <!-- Header -->
+      <header class="mb-5 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+            <div class="grid h-11 w-11 place-items-center rounded-2xl bg-brand-blue/15 ring-1 ring-brand-line shadow-glow overflow-hidden">
+                <img
+                  src="https://res.cloudinary.com/dmnxpy5zt/image/upload/v1771612585/czmidialogo_nepata.png"
+                  alt="CZ Mídia"
+                  class="h-full w-full object-contain p-1"
+                  loading="eager"
+                  decoding="async"
+                />
+              </div>
+
+          <div class="leading-tight">
+            <p class="text-sm font-semibold tracking-wide">
+              <span class="text-brand-white">CZ</span>
+              <span class="text-brand-blue"> Mídia</span>
+            </p>
+            <p class="text-xs text-brand-white/70">Diagnóstico rápido • Restaurantes</p>
+          </div>
+        </div>
+
+        <button
+          id="btnRestartTop"
+          class="hidden rounded-full px-3 py-2 text-xs font-semibold text-brand-white/80 ring-1 ring-brand-line hover:bg-white/5 active:scale-[.98]"
+          type="button"
+        >
+          Reiniciar
+        </button>
+      </header>
+
+      <!-- Progress -->
+      <section class="mb-5">
+        <div class="flex items-center justify-between text-xs">
+          <p id="progressLabel" class="text-brand-white/70">Preparando…</p>
+          <p id="stepsHint" class="text-brand-white/60">Tempo: ~1 min</p>
+        </div>
+
+        <div class="mt-2 h-2 w-full overflow-hidden rounded-full bg-white/5 ring-1 ring-brand-line">
+          <div
+            id="progressBar"
+            class="h-full w-[0%] rounded-full bg-brand-blue transition-[width] duration-300 ease-out"
+          ></div>
+        </div>
+      </section>
+
+      <!-- Card Container -->
+      <section class="flex-1">
+        <div
+          id="card"
+          class="rounded-3xl bg-brand-surface/80 p-5 ring-1 ring-brand-line shadow-glow backdrop-blur"
+        >
+          <!-- conteúdo do step vai aqui -->
+        </div>
+
+        <!-- Back / subtle -->
+        <div class="mt-4 flex items-center justify-between">
+          <button
+            id="btnBack"
+            class="invisible rounded-xl px-3 py-2 text-sm font-semibold text-brand-white/75 ring-1 ring-brand-line hover:bg-white/5 active:scale-[.98]"
+            type="button"
+          >
+            ← Voltar
+          </button>
+
+          <p class="text-xs text-brand-white/50">
+            Dica: responda rápido — o cálculo final fica mais preciso.
+          </p>
+        </div>
+      </section>
+
+      <!-- Footer tiny -->
+      <footer class="mt-8 text-center text-xs text-brand-white/45">
+        © <span id="year"></span> CZ Mídia • Tráfego pago para restaurantes
+      </footer>
+    </main>
+
+    <script>
+      // ===== Utils
+      const $ = (id) => document.getElementById(id);
+      const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+      const moneyBR = (n) =>
+        new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" }).format(n);
+
+      const WHATS_NUMBER = "5527995029973"; // +55 27 99502-9973
+
+      // ===== Steps (com condicionais)
+      // type: "choice" | "text" | "number" | "info" | "result"
+      const steps = [
+        {
+          id: "intro",
+          type: "info",
+          title: "🔎 Diagnóstico rápido",
+          text:
+            "Responda algumas perguntas e veja se existe potencial real de aumentar pedidos com tráfego pago estruturado.",
+          cta: { label: "Começar", next: "q1" },
+        },
+
+        // Etapa 1
+        {
+          id: "q1",
+          type: "choice",
+          stage: "Consciência do problema",
+          question: "Seu restaurante está vendendo o quanto você gostaria hoje?",
+          options: [
+            "Não, poderia vender muito mais",
+            "Está razoável, mas oscila muito",
+            "Sim, está excelente",
+          ],
+          key: "vendas_hoje",
+          next: (a) => (a === "Sim, está excelente" ? "q1b" : "q2"),
+        },
+        {
+          id: "q1b",
+          type: "choice",
+          stage: "Consciência do problema",
+          question: "Mesmo assim, você gostaria de aumentar previsibilidade e lucro?",
+          options: ["Sim", "Talvez", "Não"],
+          key: "previsibilidade",
+          next: () => "q2",
+        },
+        {
+          id: "q2",
+          type: "choice",
+          stage: "Consciência do problema",
+          question: "Hoje você depende mais de quê para vender?",
+          options: ["Indicação / boca a boca", "iFood", "Instagram orgânico", "Tráfego pago", "Não faço marketing"],
+          key: "dependencia",
+          next: () => "q3",
+        },
+        {
+          id: "q3",
+          type: "choice",
+          stage: "Consciência do problema",
+          question:
+            "Você sente que poderia ter mais clientes todos os dias se tivesse uma estratégia estruturada?",
+          options: ["Sim", "Talvez", "Não sei"],
+          key: "estrategia",
+          next: () => "proof",
+        },
+
+        // Etapa 2 (Prova / Autoridade)
+        {
+          id: "proof",
+          type: "info",
+          title: "📌 Sua oportunidade",
+          text:
+            "A CZ Mídia é especializada em tráfego pago para restaurantes, lanchonetes e pizzarias.\n\n" +
+            "Com investimento bem distribuído, dá pra buscar:\n" +
+            "• mais pedidos previsíveis\n" +
+            "• aumento de faturamento\n" +
+            "• ROI positivo (quando a operação está ajustada)\n\n" +
+            "Agora, deixa eu te perguntar:",
+          cta: { label: "Continuar", next: "q4" },
+        },
+        {
+          id: "q4",
+          type: "choice",
+          stage: "Oportunidade",
+          question:
+            "Você sabia que é possível transformar R$ 1.000 em R$ 5.000 ou mais em vendas usando tráfego pago estruturado?",
+          options: ["Não sabia", "Já ouvi falar", "Sim, mas nunca fiz"],
+          key: "crenca_roi",
+          next: () => "q5",
+        },
+        {
+          id: "q5",
+          type: "choice",
+          stage: "Oportunidade",
+          question:
+            "Se fosse possível gerar clientes todos os dias para seu restaurante, você teria interesse em entender como aplicar isso no seu negócio?",
+          options: ["Sim, quero entender", "Talvez", "Não"],
+          key: "interesse",
+          next: (a) => (a === "Não" ? "end_no_interest" : "q6"),
+        },
+
+        // Etapa 3 (Qualificação)
+        { id: "q6", type: "text", stage: "Qualificação", question: "Qual seu nome?", key: "nome", next: () => "q7" },
+        {
+          id: "q7",
+          type: "text",
+          stage: "Qualificação",
+          question: "Qual o nome do seu restaurante?",
+          key: "restaurante",
+          next: () => "q8",
+        },
+        {
+          id: "q8",
+          type: "choice",
+          stage: "Qualificação",
+          question: "Qual sua função no negócio?",
+          options: ["Dono(a)", "Sócio(a)", "Gerente", "Funcionário"],
+          key: "cargo",
+          next: (a) => (a === "Funcionário" ? "q8b" : "q9"),
+        },
+        {
+          id: "q8b",
+          type: "choice",
+          stage: "Qualificação",
+          question: "Você tem poder de decisão sobre marketing?",
+          options: ["Sim", "Parcialmente", "Não"],
+          key: "decisao",
+          next: () => "q9",
+        },
+        {
+          id: "q9",
+          type: "choice",
+          stage: "Qualificação",
+          question: "Qual o faturamento médio mensal do seu restaurante?",
+          options: ["Até R$ 20 mil", "R$ 20 mil a R$ 50 mil", "R$ 50 mil a R$ 100 mil", "Acima de R$ 100 mil"],
+          key: "faturamento",
+          next: () => "q10",
+        },
+        {
+          id: "q10",
+          type: "choice",
+          stage: "Compromisso",
+          question:
+            "Você estaria disposto a investir no mínimo 10% do seu faturamento mensal para aumentar suas vendas com tráfego pago?",
+          helper:
+            "Esse é o mínimo recomendado para gerar resultados reais e escaláveis (anúncios + criativos + otimizações).",
+          options: ["Sim", "Talvez", "Não"],
+          key: "investimento",
+          next: (a) => (a === "Não" ? "content_soft" : "q11"),
+        },
+
+        // Extra autoridade
+        {
+          id: "q11",
+          type: "number",
+          stage: "Extra",
+          question: "Hoje, quantos pedidos por dia você faz em média?",
+          key: "pedidos_dia",
+          next: () => "result",
+          min: 0,
+          max: 10000,
+          placeholder: "Ex.: 35",
+        },
+
+        // Fluxo alternativo (não investir)
+        {
+          id: "content_soft",
+          type: "info",
+          title: "✅ Sem problemas",
+          text:
+            "Se agora não faz sentido investir, tudo certo.\n\n" +
+            "Mesmo assim, eu posso te mostrar um caminho simples pra começar a aumentar pedidos com consistência — e quando você estiver pronto, a gente acelera com tráfego pago.",
+          cta: { label: "Continuar", next: "q11" },
+        },
+
+        // Se não tem interesse
+        {
+          id: "end_no_interest",
+          type: "result",
+          mode: "no_interest",
+          title: "Obrigado por participar 🙌",
+          text:
+            "Pelo que você respondeu, agora não é o melhor momento para avançar para o diagnóstico.\n\n" +
+            "Se quiser, você ainda pode chamar no WhatsApp para tirar dúvidas rápidas.",
+        },
+
+        // Resultado final
+        { id: "result", type: "result", mode: "default", title: "🎯 Resultado da sua análise" },
+      ];
+
+      // ===== State / Navigation
+      const state = {
+        answers: {},
+        history: [],
+        currentId: "intro",
+      };
+
+      function getStep(id) {
+        return steps.find((s) => s.id === id);
+      }
+
+      function computeNext(step, answerValue) {
+        if (!step) return null;
+        if (typeof step.next === "function") return step.next(answerValue);
+        if (typeof step.next === "string") return step.next;
+        if (step.cta?.next) return step.cta.next;
+        return null;
+      }
+
+      // ===== UI Builders
+      function badgeStage(stage) {
+        if (!stage) return "";
+        return `
+          <div class="mb-3 inline-flex items-center gap-2 rounded-full bg-white/5 px-3 py-1 text-xs font-semibold text-brand-white/75 ring-1 ring-brand-line">
+            <span class="h-2 w-2 rounded-full bg-brand-blue"></span>
+            ${escapeHtml(stage)}
+          </div>
+        `;
+      }
+
+      function escapeHtml(str) {
+        return String(str).replace(/[&<>"']/g, (m) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[m]));
+      }
+
+      function cardShell({ stage, title, question, helper, bodyHtml }) {
+        return `
+          ${badgeStage(stage)}
+          ${title ? `<h1 class="text-xl font-extrabold tracking-tight">${escapeHtml(title)}</h1>` : ""}
+          ${question ? `<h2 class="mt-2 text-lg font-bold leading-snug">${escapeHtml(question)}</h2>` : ""}
+          ${
+            helper
+              ? `<p class="mt-2 text-sm text-brand-white/70 leading-relaxed">${escapeHtml(helper)}</p>`
+              : ""
+          }
+          ${bodyHtml || ""}
+        `;
+      }
+
+      function primaryButton(label, extra = "") {
+        return `
+          <button
+            type="button"
+            class="w-full rounded-2xl bg-brand-blue px-4 py-3 text-sm font-extrabold text-brand-bg shadow-glow hover:bg-brand-blue2 active:scale-[.99] transition"
+            ${extra}
+          >
+            ${escapeHtml(label)}
+          </button>
+        `;
+      }
+
+      function subtleButton(label, extra = "") {
+        return `
+          <button
+            type="button"
+            class="w-full rounded-2xl bg-white/5 px-4 py-3 text-sm font-bold text-brand-white ring-1 ring-brand-line hover:bg-white/10 active:scale-[.99] transition"
+            ${extra}
+          >
+            ${escapeHtml(label)}
+          </button>
+        `;
+      }
+
+      function optionButton(label, idx) {
+        return `
+          <button
+            type="button"
+            data-opt="${escapeHtml(label)}"
+            class="group w-full rounded-2xl bg-brand-surface2/70 px-4 py-3 text-left text-sm font-bold text-brand-white ring-1 ring-brand-line hover:bg-white/5 active:scale-[.99] transition"
+          >
+            <div class="flex items-center justify-between gap-3">
+              <span class="leading-snug">${escapeHtml(label)}</span>
+              <span class="grid h-7 w-7 place-items-center rounded-xl bg-white/5 text-xs font-extrabold text-brand-white/70 ring-1 ring-brand-line group-hover:bg-white/10">
+                ${idx + 1}
+              </span>
+            </div>
+          </button>
+        `;
+      }
+
+      function inputField({ type = "text", placeholder = "", value = "", min, max }) {
+        const minAttr = min !== undefined ? `min="${min}"` : "";
+        const maxAttr = max !== undefined ? `max="${max}"` : "";
+        return `
+          <input
+            id="stepInput"
+            type="${type}"
+            value="${escapeHtml(value)}"
+            placeholder="${escapeHtml(placeholder)}"
+            ${minAttr}
+            ${maxAttr}
+            class="mt-4 w-full rounded-2xl bg-brand-surface2/70 px-4 py-3 text-base font-semibold text-brand-white placeholder:text-brand-white/40 ring-1 ring-brand-line focus:outline-none focus:ring-2 focus:ring-brand-blue"
+            autocomplete="off"
+          />
+        `;
+      }
+
+      function makeWhatsAppUrl() {
+        const nome = state.answers.nome ? String(state.answers.nome).trim() : "";
+        const rest = state.answers.restaurante ? String(state.answers.restaurante).trim() : "";
+        const pedidos = state.answers.pedidos_dia ?? "";
+        const faturamento = state.answers.faturamento ?? "";
+        const dependencia = state.answers.dependencia ?? "";
+        const interesse = state.answers.interesse ?? "";
+
+        const msg =
+          `Olá! Vim pelo funil da CZ Mídia.\n` +
+          `${nome ? `Nome: ${nome}\n` : ""}` +
+          `${rest ? `Restaurante: ${rest}\n` : ""}` +
+          `${faturamento ? `Faturamento: ${faturamento}\n` : ""}` +
+          `${dependencia ? `Hoje dependo mais de: ${dependencia}\n` : ""}` +
+          `${pedidos !== "" ? `Pedidos/dia (média): ${pedidos}\n` : ""}` +
+          `${interesse ? `Interesse: ${interesse}\n` : ""}` +
+          `Quero um diagnóstico rápido para aumentar pedidos.`;
+
+        return `https://wa.me/${WHATS_NUMBER}?text=${encodeURIComponent(msg)}`;
+      }
+
+      // ===== Render
+      async function setCardHtml(html) {
+        const card = $("card");
+        card.classList.remove("animate-enter", "animate-exit", "animate-shake");
+        card.classList.add("animate-exit");
+        await sleep(160);
+        card.innerHTML = html;
+        card.classList.remove("animate-exit");
+        card.classList.add("animate-enter");
+      }
+
+      function updateProgress() {
+        const label = $("progressLabel");
+        const bar = $("progressBar");
+
+        // Progresso simples baseado em history + current, com máximo aproximado (pode variar por condicionais)
+        const answered = state.history.length; // steps concluídos
+        const approxTotal = 12; // valor aproximado pro usuário (mobile, sem ficar mudando demais)
+        const pct = Math.min(100, Math.round(((answered + 1) / approxTotal) * 100));
+
+        label.textContent = state.currentId === "intro" ? "Comece quando quiser" : `Progresso: ${pct}%`;
+        bar.style.width = `${pct}%`;
+
+        $("btnBack").classList.toggle("invisible", state.history.length === 0);
+        $("btnRestartTop").classList.toggle("hidden", state.currentId === "intro");
+      }
+
+      async function renderStep(id) {
+        state.currentId = id;
+        updateProgress();
+
+        const step = getStep(id);
+        if (!step) return;
+
+        if (step.type === "info") {
+          const bodyHtml = `
+            <p class="mt-3 whitespace-pre-line text-sm leading-relaxed text-brand-white/75">${escapeHtml(step.text)}</p>
+            <div class="mt-5">
+              ${primaryButton(step.cta.label, `id="btnCta"`)}
+            </div>
+          `;
+
+          await setCardHtml(
+            cardShell({
+              stage: step.stage,
+              title: step.title,
+              bodyHtml,
+            })
+          );
+
+          $("btnCta").addEventListener("click", () => goNext(step, null, step.cta.next));
+          return;
+        }
+
+        if (step.type === "choice") {
+          const bodyHtml = `
+            <div class="mt-5 grid gap-2">
+              ${step.options.map((o, i) => optionButton(o, i)).join("")}
+            </div>
+            <p class="mt-4 text-xs text-brand-white/45">
+              Toque em uma opção para continuar.
+            </p>
+          `;
+
+          await setCardHtml(
+            cardShell({
+              stage: step.stage,
+              question: step.question,
+              helper: step.helper,
+              bodyHtml,
+            })
+          );
+
+          const card = $("card");
+          card.querySelectorAll("[data-opt]").forEach((btn) => {
+            btn.addEventListener("click", async () => {
+              const val = btn.getAttribute("data-opt");
+              btn.classList.add("ring-2", "ring-brand-blue");
+              await sleep(180);
+              goNext(step, val);
+            });
+          });
+          return;
+        }
+
+        if (step.type === "text") {
+          const current = state.answers[step.key] ?? "";
+          const bodyHtml = `
+            ${inputField({ type: "text", placeholder: "Digite aqui…", value: current })}
+            <div class="mt-4 grid gap-2">
+              ${primaryButton("Continuar", `id="btnContinue"`)}
+              ${subtleButton("Pular", `id="btnSkip"`)}
+            </div>
+          `;
+          await setCardHtml(
+            cardShell({
+              stage: step.stage,
+              question: step.question,
+              bodyHtml,
+            })
+          );
+
+          const input = $("stepInput");
+          input.focus();
+
+          $("btnContinue").addEventListener("click", () => {
+            const v = input.value.trim();
+            if (!v) return shakeCard("Digite algo ou toque em “Pular”.");
+            goNext(step, v);
+          });
+          $("btnSkip").addEventListener("click", () => goNext(step, ""));
+          input.addEventListener("keydown", (e) => {
+            if (e.key === "Enter") $("btnContinue").click();
+          });
+          return;
+        }
+
+        if (step.type === "number") {
+          const current = state.answers[step.key] ?? "";
+          const bodyHtml = `
+            ${inputField({
+              type: "number",
+              placeholder: step.placeholder || "",
+              value: current,
+              min: step.min,
+              max: step.max,
+            })}
+            <div class="mt-4 grid gap-2">
+              ${primaryButton("Ver resultado", `id="btnContinue"`)}
+              ${subtleButton("Pular", `id="btnSkip"`)}
+            </div>
+          `;
+
+          await setCardHtml(
+            cardShell({
+              stage: step.stage,
+              question: step.question,
+              bodyHtml,
+            })
+          );
+
+          const input = $("stepInput");
+          input.focus();
+
+          $("btnContinue").addEventListener("click", () => {
+            const raw = input.value.trim();
+            if (!raw) return shakeCard("Informe um número ou toque em “Pular”.");
+            const num = Number(raw);
+            if (Number.isNaN(num)) return shakeCard("Número inválido.");
+            goNext(step, num);
+          });
+          $("btnSkip").addEventListener("click", () => goNext(step, ""));
+          input.addEventListener("keydown", (e) => {
+            if (e.key === "Enter") $("btnContinue").click();
+          });
+          return;
+        }
+
+        if (step.type === "result") {
+          await renderResult(step);
+          return;
+        }
+      }
+
+      async function shakeCard(msg) {
+        const card = $("card");
+        card.classList.remove("animate-shake");
+        void card.offsetWidth;
+        card.classList.add("animate-shake");
+
+        // toast simples
+        const toast = document.createElement("div");
+        toast.className =
+          "mt-4 rounded-2xl bg-white/5 px-4 py-3 text-sm font-semibold text-brand-white/80 ring-1 ring-brand-line";
+        toast.textContent = msg;
+        card.appendChild(toast);
+        setTimeout(() => toast.remove(), 2400);
+      }
+
+      // ===== Navigation actions
+      function goNext(step, value, forcedNextId = null) {
+        // salva resposta quando existir key
+        if (step.key) state.answers[step.key] = value;
+
+        const nextId = forcedNextId ?? computeNext(step, value);
+        if (!nextId) return;
+
+        state.history.push(step.id);
+        renderStep(nextId);
+      }
+
+      function goBack() {
+        if (!state.history.length) return;
+        const prevId = state.history.pop();
+
+        // Se voltamos, não limpamos respostas automaticamente, só re-renderiza
+        renderStep(prevId);
+      }
+
+      function restart() {
+        state.answers = {};
+        state.history = [];
+        state.currentId = "intro";
+        renderStep("intro");
+      }
+
+      // ===== Result rendering
+      function pickScore() {
+        // heurística simples só pra copy: não é “verdade absoluta”
+        const interesse = state.answers.interesse;
+        const investimento = state.answers.investimento;
+        const dependencia = state.answers.dependencia;
+        const faturamento = state.answers.faturamento;
+
+        let score = 0;
+        if (interesse && interesse !== "Não") score += 2;
+        if (investimento === "Sim") score += 2;
+        if (investimento === "Talvez") score += 1;
+        if (dependencia && dependencia !== "Tráfego pago") score += 1;
+        if (faturamento === "Acima de R$ 100 mil") score += 2;
+        if (faturamento === "R$ 50 mil a R$ 100 mil") score += 1;
+
+        return Math.max(1, Math.min(5, score)); // 1..5
+      }
+
+      async function renderResult(step) {
+        const nome = (state.answers.nome || "").trim();
+        const rest = (state.answers.restaurante || "").trim();
+        const pedidosDiaRaw = state.answers.pedidos_dia;
+        const pedidosDia = typeof pedidosDiaRaw === "number" ? pedidosDiaRaw : null;
+
+        const ticketMedio = 40; // conforme seu exemplo
+        const addPedidos = 10;
+        const ganhoMensal = addPedidos * ticketMedio * 30;
+
+        const score = pickScore();
+        const levelLabel = ["Baixo", "Médio", "Bom", "Muito bom", "Excelente"][score - 1];
+
+        const calcBlock =
+          pedidosDia !== null
+            ? `
+              <div class="mt-4 rounded-2xl bg-white/5 p-4 ring-1 ring-brand-line">
+                <p class="text-xs font-semibold text-brand-white/65">Estimativa de impacto</p>
+                <p class="mt-1 text-sm text-brand-white/80 leading-relaxed">
+                  Se você aumentasse <span class="font-extrabold text-brand-white">${addPedidos} pedidos/dia</span>
+                  com ticket médio de <span class="font-extrabold text-brand-white">${moneyBR(ticketMedio)}</span>,
+                  isso dá aproximadamente:
+                </p>
+                <p class="mt-2 text-2xl font-extrabold text-brand-blue">${moneyBR(ganhoMensal)}</p>
+                <p class="mt-1 text-xs text-brand-white/55">*Estimativa simples (30 dias). Ajustamos no diagnóstico.</p>
+              </div>
+            `
+            : `
+              <div class="mt-4 rounded-2xl bg-white/5 p-4 ring-1 ring-brand-line">
+                <p class="text-sm text-brand-white/80 leading-relaxed">
+                  Dica rápida: +10 pedidos/dia com ticket médio de ${moneyBR(ticketMedio)} ≈
+                  <span class="font-extrabold text-brand-blue">${moneyBR(ganhoMensal)}</span> a mais por mês.
+                </p>
+              </div>
+            `;
+
+        const mode = step.mode || "default";
+        const isNoInterest = mode === "no_interest";
+
+        const headerTitle = isNoInterest ? step.title : "🎯 Resultado da sua análise";
+        const subtitle = isNoInterest
+          ? step.text
+          : `Com base nas suas respostas, seu restaurante tem potencial <span class="font-extrabold text-brand-blue">(${levelLabel})</span> para aumentar vendas com tráfego pago estruturado.`;
+
+        const waUrl = makeWhatsAppUrl();
+
+        const bodyHtml = `
+          <h1 class="text-xl font-extrabold tracking-tight">${escapeHtml(headerTitle)}</h1>
+          <p class="mt-3 text-sm leading-relaxed text-brand-white/75">${subtitle}</p>
+
+          ${
+            !isNoInterest
+              ? `
+                <div class="mt-4 rounded-2xl bg-white/5 p-4 ring-1 ring-brand-line">
+                  <p class="text-xs font-semibold text-brand-white/65">Você está a 2 passos</p>
+                  <p class="mt-1 text-sm font-bold text-brand-white">de descobrir como aumentar pedidos com previsibilidade.</p>
+                  <div class="mt-3 h-2 w-full overflow-hidden rounded-full bg-white/5 ring-1 ring-brand-line">
+                    <div class="h-full rounded-full bg-brand-blue" style="width:${Math.min(
+                      100,
+                      40 + score * 12
+                    )}%"></div>
+                  </div>
+                </div>
+              `
+              : ""
+          }
+
+          ${calcBlock}
+
+          <div class="mt-5 grid gap-2">
+            <a
+              href="${waUrl}"
+              class="w-full rounded-2xl bg-brand-blue px-4 py-3 text-center text-sm font-extrabold text-brand-bg shadow-glow hover:bg-brand-blue2 active:scale-[.99] transition"
+              target="_blank" rel="noopener"
+            >
+              👉 Falar no WhatsApp agora
+            </a>
+
+            <button
+              id="btnRestart"
+              type="button"
+              class="w-full rounded-2xl bg-white/5 px-4 py-3 text-sm font-bold text-brand-white ring-1 ring-brand-line hover:bg-white/10 active:scale-[.99] transition"
+            >
+              Reiniciar diagnóstico
+            </button>
+          </div>
+
+          
+        `;
+
+        await setCardHtml(bodyHtml);
+
+        $("btnRestart").addEventListener("click", restart);
+      }
+
+      // ===== Events
+      $("btnBack").addEventListener("click", goBack);
+      $("btnRestartTop").addEventListener("click", restart);
+
+      // ===== Init
+      $("year").textContent = new Date().getFullYear();
+      renderStep("intro");
+    </script>
+  </body>
+</html>
