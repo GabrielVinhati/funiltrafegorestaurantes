@@ -214,7 +214,7 @@
           id: "pedidos_dia",
           type: "number",
           stage: "Pedidos",
-          question: "Quantos pedidos por dia sua pizzaria faz em média?",
+          question: "Quantos pedidos por dia seu estabelecimento faz em média?",
           key: "pedidos_dia",
           min: 0,
           max: 100000,
@@ -238,7 +238,7 @@
           id: "faturamento",
           type: "choice",
           stage: "Faturamento",
-          question: "Qual o faturamento médio mensal da sua pizzaria?",
+          question: "Qual o faturamento médio mensal do seu estabelecimento?",
           options: ["Até R$ 30 mil", "R$ 30 mil a R$ 60 mil", "R$ 60 mil a R$ 100 mil", "Acima de R$ 100 mil"],
           key: "faturamento",
           next: () => "investir",
@@ -251,7 +251,7 @@
           stage: "Mentalidade",
           question:
             "Para gerar crescimento real com previsibilidade, é necessário investir em marketing.\n\n" +
-            "Você estaria disposto a investir pelo menos R$ 3.000 por mês para escalar sua pizzaria?",
+            "Você estaria disposto a investir pelo menos R$ 3.000 por mês para escalar seu negócio?",
           options: ["Sim, estou pronto para crescer", "Talvez, quero entender melhor", "Não tenho interesse em investir"],
           key: "investir",
           next: (a) => (a === "Não tenho interesse em investir" ? "exit" : "result"),
@@ -264,7 +264,7 @@
           stage: "Encerramento",
           title: "Tudo certo 👍",
           text:
-            "No momento, nossa estrutura é indicada para pizzarias que desejam crescimento ativo e investimento estratégico.\n\n" +
+            "No momento, nossa estrutura é indicada para negócios que desejam crescimento ativo e investimento estratégico.\n\n" +
             "Quando decidir investir para escalar, teremos prazer em ajudar.",
           cta: { label: "Encerrar diagnóstico", next: "end" },
         },
@@ -634,12 +634,12 @@
 
             <div class="mt-5 grid gap-2">
               <a
-                href="${waUrl}"
-                class="w-full rounded-2xl bg-brand-blue px-4 py-3 text-center text-sm font-extrabold text-brand-bg shadow-glow hover:bg-brand-blue2 active:scale-[.99] transition"
-                target="_blank" rel="noopener"
-              >
-                👉 GARANTIR VAGA NO WHATSAPP
-              </a>
+                  href="${waUrl}"
+                  class="w-full rounded-2xl bg-green-700 px-4 py-3 text-center text-sm font-extrabold text-white shadow-lg hover:bg-green-600 active:scale-[.99] transition"
+                  target="_blank" rel="noopener"
+                >
+                  👉 GARANTIR VAGA NO WHATSAPP
+                </a>
 
               <button
                 id="btnRestart"
@@ -663,10 +663,10 @@
         const bodyHtml = `
           ${topBanner()}
           ${badgeStage("Resultado")}
-          <h1 class="text-xl font-extrabold tracking-tight">Sua pizzaria pode estar deixando dinheiro na mesa 🍕</h1>
+          <h1 class="text-xl font-extrabold tracking-tight">Seu negócio pode estar deixando dinheiro na mesa 🍕</h1>
 
           <p class="mt-3 text-sm leading-relaxed text-brand-white/75">
-            Com base nas suas respostas, sua pizzaria tem potencial para aumentar entre
+            Com base nas suas respostas, seu negócio tem potencial para aumentar entre
             <span class="font-extrabold text-brand-blue">10 a 20 pedidos por dia</span>
             com uma estrutura correta de tráfego pago.
           </p>
@@ -682,23 +682,23 @@
           </div>
 
           <p class="mt-4 text-sm leading-relaxed text-brand-white/75">
-            A diferença entre pizzarias que crescem e as que estagnam está na previsibilidade.
+            A diferença entre estabelecimentos que crescem e as que estagnam está na previsibilidade.
           </p>
 
           <div class="mt-4 rounded-2xl bg-white/5 p-4 ring-1 ring-brand-line">
             <p class="text-sm font-extrabold text-brand-white">
-              Você está a 1 decisão de transformar sua pizzaria em uma máquina constante de pedidos.
+              Você está a 1 decisão de transformar seu negócio em uma máquina constante de pedidos.
             </p>
           </div>
 
           <div class="mt-5 grid gap-2">
             <a
-              href="${waUrl}"
-              class="w-full rounded-2xl bg-brand-blue px-4 py-3 text-center text-sm font-extrabold text-brand-bg shadow-glow hover:bg-brand-blue2 active:scale-[.99] transition"
-              target="_blank" rel="noopener"
-            >
-              👉 GARANTIR VAGA NO WHATSAPP
-            </a>
+                  href="${waUrl}"
+                  class="w-full rounded-2xl bg-green-700 px-4 py-3 text-center text-sm font-extrabold text-white shadow-lg hover:bg-green-600 active:scale-[.99] transition"
+                  target="_blank" rel="noopener"
+                >
+                  👉 GARANTIR VAGA NO WHATSAPP
+                </a>
 
             <button
               id="btnRestart"
