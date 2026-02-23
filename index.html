@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CZ Mídia</title>
-    <link rel="icon" href="https://res.cloudinary.com/dmnxpy5zt/image/upload/v1771612585/czmidialogo_nepata.png" sizes="any">
+    <link rel="icon" href="https://res.cloudinary.com/dmnxpy5zt/image/upload/v1771612585/czmidialogo_nepata.png" sizes="any" />
+
     <!-- Tailwind CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -61,39 +62,37 @@
     </script>
 
     <style>
-      /* Suaviza fontes e scroll */
       html {
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
       }
-      /* Remove highlight azul padrão mobile em botões */
       button,
       a {
         -webkit-tap-highlight-color: transparent;
       }
     </style>
+
     <!-- Meta Pixel Code -->
-<script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-  
-    fbq('init', '1220773276915671'); 
-    fbq('track', 'PageView');
-  </script>
-  <!-- End Meta Pixel Code -->
+    <script>
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+
+      fbq('init', '1220773276915671');
+      fbq('track', 'PageView');
+    </script>
+    <!-- End Meta Pixel Code -->
   </head>
 
   <body class="min-h-screen bg-brand-bg text-brand-white">
     <noscript>
-        <img height="1" width="1" style="display:none"
-             src="https://www.facebook.com/tr?id=1220773276915671&ev=PageView&noscript=1"/>
-      </noscript>
+      <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1220773276915671&ev=PageView&noscript=1"/>
+    </noscript>
+
     <!-- BG decor -->
     <div class="pointer-events-none fixed inset-0">
       <div class="absolute inset-0 bg-[radial-gradient(70%_50%_at_50%_20%,rgba(55,160,238,.22)_0%,rgba(16,16,16,0)_60%)]"></div>
@@ -105,22 +104,22 @@
       <!-- Header -->
       <header class="mb-5 flex items-center justify-between">
         <div class="flex items-center gap-3">
-            <div class="grid h-11 w-11 place-items-center rounded-2xl bg-brand-blue/15 ring-1 ring-brand-line shadow-glow overflow-hidden">
-                <img
-                  src="https://res.cloudinary.com/dmnxpy5zt/image/upload/v1771612585/czmidialogo_nepata.png"
-                  alt="CZ Mídia"
-                  class="h-full w-full object-contain p-1"
-                  loading="eager"
-                  decoding="async"
-                />
-              </div>
+          <div class="grid h-11 w-11 place-items-center rounded-2xl bg-brand-blue/15 ring-1 ring-brand-line shadow-glow overflow-hidden">
+            <img
+              src="https://res.cloudinary.com/dmnxpy5zt/image/upload/v1771612585/czmidialogo_nepata.png"
+              alt="CZ Mídia"
+              class="h-full w-full object-contain p-1"
+              loading="eager"
+              decoding="async"
+            />
+          </div>
 
           <div class="leading-tight">
             <p class="text-sm font-semibold tracking-wide">
               <span class="text-brand-white">CZ</span>
               <span class="text-brand-blue"> Mídia</span>
             </p>
-            <p class="text-xs text-brand-white/70">Diagnóstico rápido • Restaurantes</p>
+            <p class="text-xs text-brand-white/70">Funil Premium • Pizzarias & Restaurantes</p>
           </div>
         </div>
 
@@ -137,27 +136,20 @@
       <section class="mb-5">
         <div class="flex items-center justify-between text-xs">
           <p id="progressLabel" class="text-brand-white/70">Preparando…</p>
-          <p id="stepsHint" class="text-brand-white/60">Tempo: ~1 min</p>
+          <p id="stepsHint" class="text-brand-white/60">Tempo: ~45s</p>
         </div>
 
         <div class="mt-2 h-2 w-full overflow-hidden rounded-full bg-white/5 ring-1 ring-brand-line">
-          <div
-            id="progressBar"
-            class="h-full w-[0%] rounded-full bg-brand-blue transition-[width] duration-300 ease-out"
-          ></div>
+          <div id="progressBar" class="h-full w-[0%] rounded-full bg-brand-blue transition-[width] duration-300 ease-out"></div>
         </div>
       </section>
 
       <!-- Card Container -->
       <section class="flex-1">
-        <div
-          id="card"
-          class="rounded-3xl bg-brand-surface/80 p-5 ring-1 ring-brand-line shadow-glow backdrop-blur"
-        >
+        <div id="card" class="rounded-3xl bg-brand-surface/80 p-5 ring-1 ring-brand-line shadow-glow backdrop-blur">
           <!-- conteúdo do step vai aqui -->
         </div>
 
-        <!-- Back / subtle -->
         <div class="mt-4 flex items-center justify-between">
           <button
             id="btnBack"
@@ -168,14 +160,13 @@
           </button>
 
           <p class="text-xs text-brand-white/50">
-            Dica: responda rápido — o cálculo final fica mais preciso.
+            Dica: responda rápido — o resultado fica mais preciso.
           </p>
         </div>
       </section>
 
-      <!-- Footer tiny -->
       <footer class="mt-8 text-center text-xs text-brand-white/45">
-        © <span id="year"></span> CZ Mídia • Tráfego pago para restaurantes
+        © <span id="year"></span> CZ Mídia • Tráfego pago para food
       </footer>
     </main>
 
@@ -183,198 +174,106 @@
       // ===== Utils
       const $ = (id) => document.getElementById(id);
       const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-      const moneyBR = (n) =>
-        new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" }).format(n);
+      const moneyBR = (n) => new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" }).format(n);
 
       const WHATS_NUMBER = "5527995029973"; // +55 27 99502-9973
+      const TOP_BANNER_TEXT = "AS VAGAS PARA REUNIÃO ESTÃO ACABANDO — CLIQUE E GARANTA SUA VAGA AGORA!";
 
-      // ===== Steps (com condicionais)
-      // type: "choice" | "text" | "number" | "info" | "result"
+      // ===== Steps
+      // type: "choice" | "number" | "info" | "result"
       const steps = [
+        // 🔵 TELA 1 – ABERTURA
         {
           id: "intro",
           type: "info",
-          title: "🔎 Diagnóstico rápido",
+          stage: "Abertura",
+          title: "Diagnóstico Estratégico",
           text:
-            "Responda algumas perguntas e veja se existe potencial real de aumentar pedidos com tráfego pago estruturado.",
-          cta: { label: "Começar", next: "q1" },
+            "Descubra quanto sua negócio pode crescer com tráfego pago estruturado.\n\n" +
+            "⚠️ Este diagnóstico é indicado para donos que desejam crescimento real e previsível.",
+          cta: { label: "Quero analisar meu restaurante", next: "dor" },
         },
 
-        // Etapa 1
+        // 🔵 TELA 2 – DOR
         {
-          id: "q1",
+          id: "dor",
           type: "choice",
-          stage: "Consciência do problema",
-          question: "Seu restaurante está vendendo o quanto você gostaria hoje?",
+          question: "Hoje, você sente que poderia vender mais se tivesse mais pedidos todos os dias?",
           options: [
-            "Não, poderia vender muito mais",
-            "Está razoável, mas oscila muito",
-            "Sim, está excelente",
+            "Sim, principalmente em dias fracos",
+            "Sim, quero aumentar meu faturamento",
+            "Talvez",
+            "Não",
           ],
-          key: "vendas_hoje",
-          next: (a) => (a === "Sim, está excelente" ? "q1b" : "qImg"),
-        },
-        {
-            id: "qImg",
-            type: "choice",
-            stage: "Consciência do problema",
-            question: "Você gostaria de atingir resultados como esse?",
-            image: "https://res.cloudinary.com/dmnxpy5zt/image/upload/v1771618072/WhatsApp_Image_2026-02-20_at_15.58.46_bjmtvw.jpg",
-            options: ["Sim", "Não", "CLARO!"],
-            key: "quer_resultado_exemplo",
-            next: () => "q2",
-          },
-        {
-          id: "q1b",
-          type: "choice",
-          stage: "Consciência do problema",
-          question: "Mesmo assim, você gostaria de aumentar previsibilidade e lucro?",
-          options: ["Sim", "Talvez", "Não"],
-          key: "previsibilidade",
-          next: () => "q2",
-        },
-        {
-          id: "q2",
-          type: "choice",
-          stage: "Consciência do problema",
-          question: "Hoje você depende mais de quê para vender?",
-          options: ["Indicação / boca a boca", "iFood", "Instagram orgânico", "Tráfego pago", "Não faço marketing"],
-          key: "dependencia",
-          next: () => "q3",
-        },
-        {
-          id: "q3",
-          type: "choice",
-          stage: "Consciência do problema",
-          question:
-            "Você sente que poderia ter mais clientes todos os dias se tivesse uma estratégia estruturada?",
-          options: ["Sim", "Talvez", "Não sei"],
-          key: "estrategia",
-          next: () => "proof",
+          key: "dor",
+          next: () => "pedidos_dia",
         },
 
-        // Etapa 2 (Prova / Autoridade)
+        // 🔵 TELA 3 – PEDIDOS
         {
-          id: "proof",
-          type: "info",
-          title: "📌 Sua oportunidade",
-          text:
-            "A CZ Mídia é especializada em tráfego pago para restaurantes, lanchonetes e pizzarias.\n\n" +
-            "Com investimento bem distribuído, dá pra buscar:\n" +
-            "• mais pedidos previsíveis\n" +
-            "• aumento de faturamento\n" +
-            "• ROI positivo (quando a operação está ajustada)\n\n" +
-            "Agora, deixa eu te perguntar:",
-          cta: { label: "Continuar", next: "q4" },
-        },
-        {
-          id: "q4",
-          type: "choice",
-          stage: "Oportunidade",
-          question:
-            "Você sabia que é possível transformar R$ 1.000 em R$ 5.000 ou mais em vendas usando tráfego pago estruturado?",
-          options: ["Não sabia", "Já ouvi falar", "Sim, mas nunca fiz"],
-          key: "crenca_roi",
-          next: () => "q5",
-        },
-        {
-          id: "q5",
-          type: "choice",
-          stage: "Oportunidade",
-          question:
-            "Se fosse possível gerar clientes todos os dias para seu restaurante, você teria interesse em entender como aplicar isso no seu negócio?",
-          options: ["Sim, quero entender", "Talvez", "Não"],
-          key: "interesse",
-          next: (a) => (a === "Não" ? "end_no_interest" : "q6"),
-        },
-
-        // Etapa 3 (Qualificação)
-        { id: "q6", type: "text", stage: "Qualificação", question: "Qual seu nome?", key: "nome", next: () => "q7" },
-        {
-          id: "q7",
-          type: "text",
-          stage: "Qualificação",
-          question: "Qual o nome do seu restaurante?",
-          key: "restaurante",
-          next: () => "q8",
-        },
-        {
-          id: "q8",
-          type: "choice",
-          stage: "Qualificação",
-          question: "Qual sua função no negócio?",
-          options: ["Dono(a)", "Sócio(a)", "Gerente", "Funcionário"],
-          key: "cargo",
-          next: (a) => (a === "Funcionário" ? "q8b" : "q9"),
-        },
-        {
-          id: "q8b",
-          type: "choice",
-          stage: "Qualificação",
-          question: "Você tem poder de decisão sobre marketing?",
-          options: ["Sim", "Parcialmente", "Não"],
-          key: "decisao",
-          next: () => "q9",
-        },
-        {
-          id: "q9",
-          type: "choice",
-          stage: "Qualificação",
-          question: "Qual o faturamento médio mensal do seu restaurante?",
-          options: ["Até R$ 20 mil", "R$ 20 mil a R$ 50 mil", "R$ 50 mil a R$ 100 mil", "Acima de R$ 100 mil"],
-          key: "faturamento",
-          next: () => "q10",
-        },
-        {
-          id: "q10",
-          type: "choice",
-          stage: "Compromisso",
-          question:
-            "Você estaria disposto a investir no mínimo 10% do seu faturamento mensal para aumentar suas vendas com tráfego pago?",
-          helper:
-            "Esse é o mínimo recomendado para gerar resultados reais e escaláveis (anúncios + criativos + otimizações).",
-          options: ["Sim", "Talvez", "Não"],
-          key: "investimento",
-          next: (a) => (a === "Não" ? "content_soft" : "q11"),
-        },
-
-        // Extra autoridade
-        {
-          id: "q11",
+          id: "pedidos_dia",
           type: "number",
-          stage: "Extra",
-          question: "Hoje, quantos pedidos por dia você faz em média?",
+          stage: "Pedidos",
+          question: "Quantos pedidos por dia sua pizzaria faz em média?",
           key: "pedidos_dia",
-          next: () => "result",
           min: 0,
-          max: 10000,
+          max: 100000,
           placeholder: "Ex.: 35",
+          next: () => "ticket",
         },
 
-        // Fluxo alternativo (não investir)
+        // 🔵 TELA 4 – TICKET MÉDIO
         {
-          id: "content_soft",
+          id: "ticket",
+          type: "choice",
+          stage: "Ticket médio",
+          question: "Qual o ticket médio aproximado por pedido?",
+          options: ["Até R$ 40", "R$ 40 a R$ 60", "R$ 60 a R$ 80", "Acima de R$ 80"],
+          key: "ticket",
+          next: () => "faturamento",
+        },
+
+        // 🔵 TELA 5 – FATURAMENTO (SEM EXCLUIR)
+        {
+          id: "faturamento",
+          type: "choice",
+          stage: "Faturamento",
+          question: "Qual o faturamento médio mensal da sua pizzaria?",
+          options: ["Até R$ 30 mil", "R$ 30 mil a R$ 60 mil", "R$ 60 mil a R$ 100 mil", "Acima de R$ 100 mil"],
+          key: "faturamento",
+          next: () => "investir",
+        },
+
+        // 🔵 TELA 6 – FILTRO PRINCIPAL (MENTALIDADE)
+        {
+          id: "investir",
+          type: "choice",
+          stage: "Mentalidade",
+          question:
+            "Para gerar crescimento real com previsibilidade, é necessário investir em marketing.\n\n" +
+            "Você estaria disposto a investir pelo menos R$ 3.000 por mês para escalar sua pizzaria?",
+          options: ["Sim, estou pronto para crescer", "Talvez, quero entender melhor", "Não tenho interesse em investir"],
+          key: "investir",
+          next: (a) => (a === "Não tenho interesse em investir" ? "exit" : "result"),
+        },
+
+        // 🔴 Saída elegante
+        {
+          id: "exit",
           type: "info",
-          title: "✅ Sem problemas",
+          stage: "Encerramento",
+          title: "Tudo certo 👍",
           text:
-            "Se agora não faz sentido investir, tudo certo.\n\n" +
-            "Mesmo assim, eu posso te mostrar um caminho simples pra começar a aumentar pedidos com consistência — e quando você estiver pronto, a gente acelera com tráfego pago.",
-          cta: { label: "Continuar", next: "q11" },
+            "No momento, nossa estrutura é indicada para pizzarias que desejam crescimento ativo e investimento estratégico.\n\n" +
+            "Quando decidir investir para escalar, teremos prazer em ajudar.",
+          cta: { label: "Encerrar diagnóstico", next: "end" },
         },
 
-        // Se não tem interesse
-        {
-          id: "end_no_interest",
-          type: "result",
-          mode: "no_interest",
-          title: "Obrigado por participar 🙌",
-          text:
-            "Pelo que você respondeu, agora não é o melhor momento para avançar para o diagnóstico.\n\n" +
-            "Se quiser, você ainda pode chamar no WhatsApp para tirar dúvidas rápidas.",
-        },
+        // Tela final forte
+        { id: "result", type: "result", mode: "default" },
 
-        // Resultado final
-        { id: "result", type: "result", mode: "default", title: "🎯 Resultado da sua análise" },
+        // Final (apenas pra encerrar com botão WhatsApp)
+        { id: "end", type: "result", mode: "end_only" },
       ];
 
       // ===== State / Navigation
@@ -397,6 +296,10 @@
       }
 
       // ===== UI Builders
+      function escapeHtml(str) {
+        return String(str).replace(/[&<>"']/g, (m) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[m]));
+      }
+
       function badgeStage(stage) {
         if (!stage) return "";
         return `
@@ -407,18 +310,30 @@
         `;
       }
 
-      function escapeHtml(str) {
-        return String(str).replace(/[&<>"']/g, (m) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[m]));
+      function topBanner() {
+        return `
+              <div class="mb-4 rounded-2xl bg-green-500/10 px-4 py-3 ring-1 ring-green-500/30">
+                <div class="flex items-start gap-3">
+                  <span class="mt-0.5 grid h-6 w-6 place-items-center rounded-xl bg-green-500 text-white text-xs font-extrabold">
+                    !
+                  </span>
+                  <p class="text-xs font-extrabold tracking-wide text-green-400 leading-snug">
+                    ${escapeHtml(TOP_BANNER_TEXT)}
+                  </p>
+                </div>
+              </div>
+            `;
       }
 
       function cardShell({ stage, title, question, helper, bodyHtml }) {
         return `
+          ${topBanner()}
           ${badgeStage(stage)}
           ${title ? `<h1 class="text-xl font-extrabold tracking-tight">${escapeHtml(title)}</h1>` : ""}
-          ${question ? `<h2 class="mt-2 text-lg font-bold leading-snug">${escapeHtml(question)}</h2>` : ""}
+          ${question ? `<h2 class="mt-2 text-lg font-bold leading-snug whitespace-pre-line">${escapeHtml(question)}</h2>` : ""}
           ${
             helper
-              ? `<p class="mt-2 text-sm text-brand-white/70 leading-relaxed">${escapeHtml(helper)}</p>`
+              ? `<p class="mt-2 text-sm text-brand-white/70 leading-relaxed whitespace-pre-line">${escapeHtml(helper)}</p>`
               : ""
           }
           ${bodyHtml || ""}
@@ -430,18 +345,6 @@
           <button
             type="button"
             class="w-full rounded-2xl bg-brand-blue px-4 py-3 text-sm font-extrabold text-brand-bg shadow-glow hover:bg-brand-blue2 active:scale-[.99] transition"
-            ${extra}
-          >
-            ${escapeHtml(label)}
-          </button>
-        `;
-      }
-
-      function subtleButton(label, extra = "") {
-        return `
-          <button
-            type="button"
-            class="w-full rounded-2xl bg-white/5 px-4 py-3 text-sm font-bold text-brand-white ring-1 ring-brand-line hover:bg-white/10 active:scale-[.99] transition"
             ${extra}
           >
             ${escapeHtml(label)}
@@ -466,7 +369,7 @@
         `;
       }
 
-      function inputField({ type = "text", placeholder = "", value = "", min, max }) {
+      function inputField({ type = "number", placeholder = "", value = "", min, max }) {
         const minAttr = min !== undefined ? `min="${min}"` : "";
         const maxAttr = max !== undefined ? `max="${max}"` : "";
         return `
@@ -479,29 +382,42 @@
             ${maxAttr}
             class="mt-4 w-full rounded-2xl bg-brand-surface2/70 px-4 py-3 text-base font-semibold text-brand-white placeholder:text-brand-white/40 ring-1 ring-brand-line focus:outline-none focus:ring-2 focus:ring-brand-blue"
             autocomplete="off"
+            inputmode="numeric"
           />
         `;
       }
 
       function makeWhatsAppUrl() {
-        const nome = state.answers.nome ? String(state.answers.nome).trim() : "";
-        const rest = state.answers.restaurante ? String(state.answers.restaurante).trim() : "";
         const pedidos = state.answers.pedidos_dia ?? "";
+        const ticket = state.answers.ticket ?? "";
         const faturamento = state.answers.faturamento ?? "";
-        const dependencia = state.answers.dependencia ?? "";
-        const interesse = state.answers.interesse ?? "";
+        const investir = state.answers.investir ?? "";
+        const dor = state.answers.dor ?? "";
 
         const msg =
-          `Olá! Vim pelo funil da CZ Mídia.\n` +
-          `${nome ? `Nome: ${nome}\n` : ""}` +
-          `${rest ? `Restaurante: ${rest}\n` : ""}` +
-          `${faturamento ? `Faturamento: ${faturamento}\n` : ""}` +
-          `${dependencia ? `Hoje dependo mais de: ${dependencia}\n` : ""}` +
-          `${pedidos !== "" ? `Pedidos/dia (média): ${pedidos}\n` : ""}` +
-          `${interesse ? `Interesse: ${interesse}\n` : ""}` +
-          `Quero um diagnóstico rápido para aumentar pedidos.`;
+          `Olá! Vim pelo Funil Premium da CZ Mídia.\n\n` +
+          `Minhas respostas:\n` +
+          `${dor ? `• Dor: ${dor}\n` : ""}` +
+          `${pedidos !== "" ? `• Pedidos/dia (média): ${pedidos}\n` : ""}` +
+          `${ticket ? `• Ticket médio: ${ticket}\n` : ""}` +
+          `${faturamento ? `• Faturamento: ${faturamento}\n` : ""}` +
+          `${investir ? `• Disposição de investimento: ${investir}\n` : ""}` +
+          `\nQuero garantir uma vaga para reunião e fazer o diagnóstico.`;
 
         return `https://wa.me/${WHATS_NUMBER}?text=${encodeURIComponent(msg)}`;
+      }
+
+      function whatsWideButton() {
+        const waUrl = makeWhatsAppUrl();
+        return `
+                <a
+                  href="${waUrl}"
+                  class="w-full rounded-2xl bg-green-700 px-4 py-3 text-center text-sm font-extrabold text-white shadow-lg hover:bg-green-600 active:scale-[.99] transition"
+                  target="_blank" rel="noopener"
+                >
+                  👉 GARANTIR VAGA NO WHATSAPP
+                </a>
+              `;
       }
 
       // ===== Render
@@ -519,10 +435,9 @@
         const label = $("progressLabel");
         const bar = $("progressBar");
 
-        // Progresso simples baseado em history + current, com máximo aproximado (pode variar por condicionais)
-        const answered = state.history.length; // steps concluídos
-        const approxTotal = 12; // valor aproximado pro usuário (mobile, sem ficar mudando demais)
-        const pct = Math.min(100, Math.round(((answered + 1) / approxTotal) * 100));
+        const answered = state.history.length;
+        const approxTotal = 6; // fixo pra esse funil
+        const pct = Math.min(100, Math.round(((answered + 1) / (approxTotal + 1)) * 100));
 
         label.textContent = state.currentId === "intro" ? "Comece quando quiser" : `Progresso: ${pct}%`;
         bar.style.width = `${pct}%`;
@@ -541,9 +456,13 @@
         if (step.type === "info") {
           const bodyHtml = `
             <p class="mt-3 whitespace-pre-line text-sm leading-relaxed text-brand-white/75">${escapeHtml(step.text)}</p>
-            <div class="mt-5">
+
+            <div class="mt-5 grid gap-2">
               ${primaryButton(step.cta.label, `id="btnCta"`)}
+              ${whatsWideButton()}
             </div>
+
+            <p class="mt-3 text-xs text-brand-white/45">*Clique no WhatsApp a qualquer momento para garantir sua vaga.</p>
           `;
 
           await setCardHtml(
@@ -559,28 +478,16 @@
         }
 
         if (step.type === "choice") {
-            const bodyHtml = `
-            ${
-              step.image
-                ? `
-                  <div class="mt-5">
-                    <img
-                      src="${escapeHtml(step.image)}"
-                      alt="Resultado"
-                      class="w-full rounded-2xl object-cover ring-1 ring-brand-line shadow-[0_16px_40px_rgba(0,0,0,0.35)]"
-                    />
-                  </div>
-                `
-                : ""
-            }
-          
+          const bodyHtml = `
             <div class="mt-5 grid gap-2">
               ${step.options.map((o, i) => optionButton(o, i)).join("")}
             </div>
-          
-            <p class="mt-4 text-xs text-brand-white/45">
-              Toque em uma opção para continuar.
-            </p>
+
+            <div class="mt-5 grid gap-2">
+              ${whatsWideButton()}
+            </div>
+
+            <p class="mt-3 text-xs text-brand-white/45">*Clique no WhatsApp para garantir sua vaga agora.</p>
           `;
 
           await setCardHtml(
@@ -597,41 +504,9 @@
             btn.addEventListener("click", async () => {
               const val = btn.getAttribute("data-opt");
               btn.classList.add("ring-2", "ring-brand-blue");
-              await sleep(180);
+              await sleep(140);
               goNext(step, val);
             });
-          });
-          return;
-        }
-
-        if (step.type === "text") {
-          const current = state.answers[step.key] ?? "";
-          const bodyHtml = `
-            ${inputField({ type: "text", placeholder: "Digite aqui…", value: current })}
-            <div class="mt-4 grid gap-2">
-              ${primaryButton("Continuar", `id="btnContinue"`)}
-              ${subtleButton("Pular", `id="btnSkip"`)}
-            </div>
-          `;
-          await setCardHtml(
-            cardShell({
-              stage: step.stage,
-              question: step.question,
-              bodyHtml,
-            })
-          );
-
-          const input = $("stepInput");
-          input.focus();
-
-          $("btnContinue").addEventListener("click", () => {
-            const v = input.value.trim();
-            if (!v) return shakeCard("Digite algo ou toque em “Pular”.");
-            goNext(step, v);
-          });
-          $("btnSkip").addEventListener("click", () => goNext(step, ""));
-          input.addEventListener("keydown", (e) => {
-            if (e.key === "Enter") $("btnContinue").click();
           });
           return;
         }
@@ -646,10 +521,13 @@
               min: step.min,
               max: step.max,
             })}
+
             <div class="mt-4 grid gap-2">
-              ${primaryButton("Ver resultado", `id="btnContinue"`)}
-              ${subtleButton("Pular", `id="btnSkip"`)}
+              ${primaryButton("Continuar", `id="btnContinue"`)}
+              ${whatsWideButton()}
             </div>
+
+            <p class="mt-3 text-xs text-brand-white/45">*Clique no WhatsApp para garantir sua vaga agora.</p>
           `;
 
           await setCardHtml(
@@ -665,12 +543,12 @@
 
           $("btnContinue").addEventListener("click", () => {
             const raw = input.value.trim();
-            if (!raw) return shakeCard("Informe um número ou toque em “Pular”.");
+            if (!raw) return shakeCard("Informe um número para continuar.");
             const num = Number(raw);
             if (Number.isNaN(num)) return shakeCard("Número inválido.");
             goNext(step, num);
           });
-          $("btnSkip").addEventListener("click", () => goNext(step, ""));
+
           input.addEventListener("keydown", (e) => {
             if (e.key === "Enter") $("btnContinue").click();
           });
@@ -689,7 +567,6 @@
         void card.offsetWidth;
         card.classList.add("animate-shake");
 
-        // toast simples
         const toast = document.createElement("div");
         toast.className =
           "mt-4 rounded-2xl bg-white/5 px-4 py-3 text-sm font-semibold text-brand-white/80 ring-1 ring-brand-line";
@@ -698,9 +575,8 @@
         setTimeout(() => toast.remove(), 2400);
       }
 
-      // ===== Navigation actions
+      // ===== Navigation
       function goNext(step, value, forcedNextId = null) {
-        // salva resposta quando existir key
         if (step.key) state.answers[step.key] = value;
 
         const nextId = forcedNextId ?? computeNext(step, value);
@@ -713,8 +589,6 @@
       function goBack() {
         if (!state.history.length) return;
         const prevId = state.history.pop();
-
-        // Se voltamos, não limpamos respostas automaticamente, só re-renderiza
         renderStep(prevId);
       }
 
@@ -725,93 +599,97 @@
         renderStep("intro");
       }
 
-      // ===== Result rendering
-      function pickScore() {
-        // heurística simples só pra copy: não é “verdade absoluta”
-        const interesse = state.answers.interesse;
-        const investimento = state.answers.investimento;
-        const dependencia = state.answers.dependencia;
-        const faturamento = state.answers.faturamento;
+      // ===== Result logic
+      function ticketToNumber(ticketStr) {
+        // usado só para cálculo simples do texto
+        if (!ticketStr) return 60;
+        if (ticketStr.includes("Até R$ 40")) return 40;
+        if (ticketStr.includes("R$ 40 a R$ 60")) return 50;
+        if (ticketStr.includes("R$ 60 a R$ 80")) return 70;
+        if (ticketStr.includes("Acima de R$ 80")) return 90;
+        return 60;
+      }
 
-        let score = 0;
-        if (interesse && interesse !== "Não") score += 2;
-        if (investimento === "Sim") score += 2;
-        if (investimento === "Talvez") score += 1;
-        if (dependencia && dependencia !== "Tráfego pago") score += 1;
-        if (faturamento === "Acima de R$ 100 mil") score += 2;
-        if (faturamento === "R$ 50 mil a R$ 100 mil") score += 1;
-
-        return Math.max(1, Math.min(5, score)); // 1..5
+      function estimateAddPedidos() {
+        // estimativa “copy” baseada em pedidos atuais
+        const p = state.answers.pedidos_dia;
+        if (typeof p !== "number") return 12;
+        if (p <= 10) return 10;
+        if (p <= 30) return 12;
+        if (p <= 60) return 15;
+        return 18;
       }
 
       async function renderResult(step) {
-        const nome = (state.answers.nome || "").trim();
-        const rest = (state.answers.restaurante || "").trim();
-        const pedidosDiaRaw = state.answers.pedidos_dia;
-        const pedidosDia = typeof pedidosDiaRaw === "number" ? pedidosDiaRaw : null;
-
-        const ticketMedio = 40; // conforme seu exemplo
-        const addPedidos = 10;
-        const ganhoMensal = addPedidos * ticketMedio * 30;
-
-        const score = pickScore();
-        const levelLabel = ["Baixo", "Médio", "Bom", "Muito bom", "Excelente"][score - 1];
-
-        const calcBlock =
-          pedidosDia !== null
-            ? `
-              <div class="mt-4 rounded-2xl bg-white/5 p-4 ring-1 ring-brand-line">
-                <p class="text-xs font-semibold text-brand-white/65">Estimativa de impacto</p>
-                <p class="mt-1 text-sm text-brand-white/80 leading-relaxed">
-                  Se você aumentasse <span class="font-extrabold text-brand-white">${addPedidos} pedidos/dia</span>
-                  com ticket médio de <span class="font-extrabold text-brand-white">${moneyBR(ticketMedio)}</span>,
-                  isso dá aproximadamente:
-                </p>
-                <p class="mt-2 text-2xl font-extrabold text-brand-blue">${moneyBR(ganhoMensal)}</p>
-                <p class="mt-1 text-xs text-brand-white/55">*Estimativa simples (30 dias). Ajustamos no diagnóstico.</p>
-              </div>
-            `
-            : `
-              <div class="mt-4 rounded-2xl bg-white/5 p-4 ring-1 ring-brand-line">
-                <p class="text-sm text-brand-white/80 leading-relaxed">
-                  Dica rápida: +10 pedidos/dia com ticket médio de ${moneyBR(ticketMedio)} ≈
-                  <span class="font-extrabold text-brand-blue">${moneyBR(ganhoMensal)}</span> a mais por mês.
-                </p>
-              </div>
-            `;
-
         const mode = step.mode || "default";
-        const isNoInterest = mode === "no_interest";
-
-        const headerTitle = isNoInterest ? step.title : "🎯 Resultado da sua análise";
-        const subtitle = isNoInterest
-          ? step.text
-          : `Com base nas suas respostas, seu restaurante tem potencial <span class="font-extrabold text-brand-blue">(${levelLabel})</span> para aumentar vendas com tráfego pago estruturado.`;
-
         const waUrl = makeWhatsAppUrl();
 
+        if (mode === "end_only") {
+          const bodyHtml = `
+            ${topBanner()}
+            <h1 class="text-xl font-extrabold tracking-tight">Diagnóstico encerrado ✅</h1>
+            <p class="mt-3 text-sm leading-relaxed text-brand-white/75">
+              Se quiser, você ainda pode clicar no WhatsApp e garantir uma vaga para conversar sobre o seu cenário.
+            </p>
+
+            <div class="mt-5 grid gap-2">
+              <a
+                href="${waUrl}"
+                class="w-full rounded-2xl bg-brand-blue px-4 py-3 text-center text-sm font-extrabold text-brand-bg shadow-glow hover:bg-brand-blue2 active:scale-[.99] transition"
+                target="_blank" rel="noopener"
+              >
+                👉 GARANTIR VAGA NO WHATSAPP
+              </a>
+
+              <button
+                id="btnRestart"
+                type="button"
+                class="w-full rounded-2xl bg-white/5 px-4 py-3 text-sm font-bold text-brand-white ring-1 ring-brand-line hover:bg-white/10 active:scale-[.99] transition"
+              >
+                Reiniciar diagnóstico
+              </button>
+            </div>
+          `;
+
+          await setCardHtml(bodyHtml);
+          $("btnRestart").addEventListener("click", restart);
+          return;
+        }
+
+        const ticketNum = ticketToNumber(state.answers.ticket);
+        const addPedidos = estimateAddPedidos();
+        const ganhoMensal = addPedidos * ticketNum * 30;
+
         const bodyHtml = `
-          <h1 class="text-xl font-extrabold tracking-tight">${escapeHtml(headerTitle)}</h1>
-          <p class="mt-3 text-sm leading-relaxed text-brand-white/75">${subtitle}</p>
+          ${topBanner()}
+          ${badgeStage("Resultado")}
+          <h1 class="text-xl font-extrabold tracking-tight">Sua pizzaria pode estar deixando dinheiro na mesa 🍕</h1>
 
-          ${
-            !isNoInterest
-              ? `
-                <div class="mt-4 rounded-2xl bg-white/5 p-4 ring-1 ring-brand-line">
-                  <p class="text-xs font-semibold text-brand-white/65">Você está a 2 passos</p>
-                  <p class="mt-1 text-sm font-bold text-brand-white">de descobrir como aumentar pedidos com previsibilidade.</p>
-                  <div class="mt-3 h-2 w-full overflow-hidden rounded-full bg-white/5 ring-1 ring-brand-line">
-                    <div class="h-full rounded-full bg-brand-blue" style="width:${Math.min(
-                      100,
-                      40 + score * 12
-                    )}%"></div>
-                  </div>
-                </div>
-              `
-              : ""
-          }
+          <p class="mt-3 text-sm leading-relaxed text-brand-white/75">
+            Com base nas suas respostas, sua pizzaria tem potencial para aumentar entre
+            <span class="font-extrabold text-brand-blue">10 a 20 pedidos por dia</span>
+            com uma estrutura correta de tráfego pago.
+          </p>
 
-          ${calcBlock}
+          <div class="mt-4 rounded-2xl bg-white/5 p-4 ring-1 ring-brand-line">
+            <p class="text-xs font-semibold text-brand-white/65">Estimativa de impacto</p>
+            <p class="mt-1 text-sm text-brand-white/80 leading-relaxed">
+              Se seu ticket médio for de <span class="font-extrabold text-brand-white">${moneyBR(ticketNum)}</span>,
+              isso pode representar aproximadamente:
+            </p>
+            <p class="mt-2 text-2xl font-extrabold text-brand-blue">${moneyBR(ganhoMensal)}</p>
+            <p class="mt-1 text-xs text-brand-white/55">*Estimativa simples (30 dias). Ajustamos na reunião.</p>
+          </div>
+
+          <p class="mt-4 text-sm leading-relaxed text-brand-white/75">
+            A diferença entre pizzarias que crescem e as que estagnam está na previsibilidade.
+          </p>
+
+          <div class="mt-4 rounded-2xl bg-white/5 p-4 ring-1 ring-brand-line">
+            <p class="text-sm font-extrabold text-brand-white">
+              Você está a 1 decisão de transformar sua pizzaria em uma máquina constante de pedidos.
+            </p>
+          </div>
 
           <div class="mt-5 grid gap-2">
             <a
@@ -819,7 +697,7 @@
               class="w-full rounded-2xl bg-brand-blue px-4 py-3 text-center text-sm font-extrabold text-brand-bg shadow-glow hover:bg-brand-blue2 active:scale-[.99] transition"
               target="_blank" rel="noopener"
             >
-              👉 Falar no WhatsApp agora
+              👉 GARANTIR VAGA NO WHATSAPP
             </a>
 
             <button
@@ -830,12 +708,9 @@
               Reiniciar diagnóstico
             </button>
           </div>
-
-          
         `;
 
         await setCardHtml(bodyHtml);
-
         $("btnRestart").addEventListener("click", restart);
       }
 
