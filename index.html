@@ -3,20 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CZ Mídia</title>
-    <link rel="icon" href="https://res.cloudinary.com/dmnxpy5zt/image/upload/v1771612585/czmidialogo_nepata.png" sizes="any" />
+    <title>CZ Mídia — Destravar Vendas</title>
+    <meta name="description" content="Formulário estratégico da CZ Mídia. Preencha e receba um plano realista de crescimento com tráfego pago para sua empresa." />
+    <link rel="icon" href="img/image.png" type="image/png" sizes="192x192" />
+    <link rel="shortcut icon" href="img/image.png" type="image/png" />
+    <link rel="apple-touch-icon" href="img/image.png" />
 
     <!-- Tailwind CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Paleta baseada na imagem (preto/azul/branco + cinza) -->
     <script>
       tailwind.config = {
         theme: {
           extend: {
             colors: {
               brand: {
-                bg: "#101010",
+                bg: "#0D0D0D",
                 surface: "#141414",
                 surface2: "#1A1A1A",
                 blue: "#37A0EE",
@@ -27,16 +29,16 @@
               },
             },
             boxShadow: {
-              glow: "0 0 0 1px rgba(55,160,238,.35), 0 12px 40px rgba(0,0,0,.55)",
+              glow: "0 0 0 1px rgba(55,160,238,.30), 0 16px 48px rgba(0,0,0,.60)",
             },
             keyframes: {
               enter: {
-                "0%": { opacity: "0", transform: "translateY(10px) scale(.99)" },
+                "0%": { opacity: "0", transform: "translateY(12px) scale(.985)" },
                 "100%": { opacity: "1", transform: "translateY(0) scale(1)" },
               },
               exit: {
                 "0%": { opacity: "1", transform: "translateY(0) scale(1)" },
-                "100%": { opacity: "0", transform: "translateY(-8px) scale(.99)" },
+                "100%": { opacity: "0", transform: "translateY(-8px) scale(.985)" },
               },
               shake: {
                 "0%,100%": { transform: "translateX(0)" },
@@ -46,15 +48,20 @@
                 "80%": { transform: "translateX(4px)" },
               },
               pulseSoft: {
-                "0%,100%": { opacity: ".45" },
-                "50%": { opacity: ".9" },
+                "0%,100%": { opacity: ".35" },
+                "50%": { opacity: ".80" },
+              },
+              floatUp: {
+                "0%,100%": { transform: "translateY(0px)" },
+                "50%": { transform: "translateY(-8px)" },
               },
             },
             animation: {
               enter: "enter .35s ease-out both",
-              exit: "exit .25s ease-in both",
+              exit: "exit .22s ease-in both",
               shake: "shake .28s ease-in-out",
-              pulseSoft: "pulseSoft 2.5s ease-in-out infinite",
+              pulseSoft: "pulseSoft 3s ease-in-out infinite",
+              floatUp: "floatUp 4s ease-in-out infinite",
             },
           },
         },
@@ -62,13 +69,13 @@
     </script>
 
     <style>
-      html {
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-      }
-      button,
-      a {
-        -webkit-tap-highlight-color: transparent;
+      html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+      button, a { -webkit-tap-highlight-color: transparent; }
+      input:-webkit-autofill,
+      input:-webkit-autofill:focus {
+        -webkit-box-shadow: 0 0 0 1000px #1A1A1A inset;
+        -webkit-text-fill-color: #F7F7F7;
+        caret-color: #F7F7F7;
       }
     </style>
 
@@ -81,7 +88,6 @@
       t.src=v;s=b.getElementsByTagName(e)[0];
       s.parentNode.insertBefore(t,s)}(window, document,'script',
       'https://connect.facebook.net/en_US/fbevents.js');
-
       fbq('init', '1220773276915671');
       fbq('track', 'PageView');
     </script>
@@ -93,472 +99,351 @@
       <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1220773276915671&ev=PageView&noscript=1"/>
     </noscript>
 
-    <!-- BG decor -->
-    <div class="pointer-events-none fixed inset-0">
-      <div class="absolute inset-0 bg-[radial-gradient(70%_50%_at_50%_20%,rgba(55,160,238,.22)_0%,rgba(16,16,16,0)_60%)]"></div>
-      <div class="absolute -top-24 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-brand-blue/10 blur-3xl animate-pulseSoft"></div>
-      <div class="absolute -bottom-24 right-[-60px] h-72 w-72 rounded-full bg-brand-blue/10 blur-3xl"></div>
+    <!-- BG Decor -->
+    <div class="pointer-events-none fixed inset-0 overflow-hidden">
+      <div class="absolute inset-0 bg-[radial-gradient(60%_45%_at_50%_15%,rgba(55,160,238,.18)_0%,rgba(13,13,13,0)_65%)]"></div>
+      <div class="absolute -top-32 left-1/2 h-80 w-80 -translate-x-1/2 rounded-full bg-brand-blue/8 blur-3xl animate-pulseSoft"></div>
+      <div class="absolute top-1/2 -left-24 h-64 w-64 rounded-full bg-brand-blue/5 blur-3xl animate-floatUp"></div>
+      <div class="absolute -bottom-20 right-[-40px] h-64 w-64 rounded-full bg-brand-blue/7 blur-3xl"></div>
     </div>
 
-    <main class="relative mx-auto flex min-h-screen max-w-[520px] flex-col px-4 pb-10 pt-6">
+    <main class="relative mx-auto flex min-h-screen max-w-[540px] flex-col px-4 pb-12 pt-6">
+
       <!-- Header -->
-      <header class="mb-5 flex items-center justify-between">
+      <header class="mb-6 flex items-center justify-between">
         <div class="flex items-center gap-3">
           <div class="grid h-11 w-11 place-items-center rounded-2xl bg-brand-blue/15 ring-1 ring-brand-line shadow-glow overflow-hidden">
             <img
-              src="https://res.cloudinary.com/dmnxpy5zt/image/upload/v1771612585/czmidialogo_nepata.png"
+              src="img/image.png"
               alt="CZ Mídia"
-              class="h-full w-full object-contain p-1"
+              class="h-full w-full object-contain scale-[1.8]"
               loading="eager"
               decoding="async"
             />
           </div>
-
           <div class="leading-tight">
             <p class="text-sm font-semibold tracking-wide">
-              <span class="text-brand-white">CZ</span>
-              <span class="text-brand-blue"> Mídia</span>
+              <span class="text-brand-white">CZ</span><span class="text-brand-blue"> Mídia</span>
             </p>
-            <p class="text-xs text-brand-white/70">Funil Premium • Pizzarias & Restaurantes</p>
+            <p class="text-xs text-brand-white/60">Tráfego Pago Estratégico</p>
           </div>
         </div>
-
         <button
           id="btnRestartTop"
-          class="hidden rounded-full px-3 py-2 text-xs font-semibold text-brand-white/80 ring-1 ring-brand-line hover:bg-white/5 active:scale-[.98]"
+          class="hidden rounded-full px-3 py-2 text-xs font-semibold text-brand-white/70 ring-1 ring-brand-line hover:bg-white/5 active:scale-[.98] transition"
           type="button"
-        >
-          Reiniciar
-        </button>
+        >Reiniciar</button>
       </header>
 
       <!-- Progress -->
       <section class="mb-5">
-        <div class="flex items-center justify-between text-xs">
-          <p id="progressLabel" class="text-brand-white/70">Preparando…</p>
-          <p id="stepsHint" class="text-brand-white/60">Tempo: ~45s</p>
+        <div class="flex items-center justify-between text-xs mb-2">
+          <p id="progressLabel" class="text-brand-white/65 font-medium">Pronto para começar!</p>
+          <p id="stepsHint" class="text-brand-white/50">⏱ menos de 2 min</p>
         </div>
-
-        <div class="mt-2 h-2 w-full overflow-hidden rounded-full bg-white/5 ring-1 ring-brand-line">
-          <div id="progressBar" class="h-full w-[0%] rounded-full bg-brand-blue transition-[width] duration-300 ease-out"></div>
+        <div class="h-1.5 w-full overflow-hidden rounded-full bg-white/5 ring-1 ring-brand-line">
+          <div id="progressBar" class="h-full w-[0%] rounded-full bg-gradient-to-r from-brand-blue to-sky-400 transition-[width] duration-500 ease-out"></div>
         </div>
       </section>
 
       <!-- Card Container -->
       <section class="flex-1">
-        <div id="card" class="rounded-3xl bg-brand-surface/80 p-5 ring-1 ring-brand-line shadow-glow backdrop-blur">
-          <!-- conteúdo do step vai aqui -->
+        <div id="card" class="rounded-3xl bg-brand-surface/90 p-6 ring-1 ring-brand-line shadow-glow backdrop-blur-md">
+          <!-- step content rendered here -->
         </div>
-
         <div class="mt-4 flex items-center justify-between">
           <button
             id="btnBack"
-            class="invisible rounded-xl px-3 py-2 text-sm font-semibold text-brand-white/75 ring-1 ring-brand-line hover:bg-white/5 active:scale-[.98]"
+            class="invisible rounded-xl px-3 py-2 text-sm font-semibold text-brand-white/70 ring-1 ring-brand-line hover:bg-white/5 active:scale-[.98] transition"
             type="button"
-          >
-            ← Voltar
-          </button>
-
-          <p class="text-xs text-brand-white/50">
-            Dica: responda rápido — o resultado fica mais preciso.
-          </p>
+          >← Voltar</button>
+          <p class="text-xs text-brand-white/40">Suas respostas são confidenciais 🔒</p>
         </div>
       </section>
 
-      <footer class="mt-8 text-center text-xs text-brand-white/45">
-        © <span id="year"></span> CZ Mídia • Tráfego pago para food
+      <footer class="mt-10 text-center text-xs text-brand-white/35">
+        © <span id="year"></span> CZ Mídia • Tráfego pago estratégico
       </footer>
     </main>
 
     <script>
-      // ===== Utils
       const $ = (id) => document.getElementById(id);
       const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-      const moneyBR = (n) => new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" }).format(n);
+      const WHATS_NUMBER = "5527995029973";
 
-      const WHATS_NUMBER = "5527995029973"; // +55 27 99502-9973
-      const TOP_BANNER_TEXT = "AS VAGAS PARA REUNIÃO ESTÃO ACABANDO — CLIQUE E GARANTA SUA VAGA AGORA!";
-
-      // ===== Steps
-      // type: "choice" | "number" | "info" | "result"
       const steps = [
-        // 🔵 TELA 1 – ABERTURA
+        { id: "intro",      type: "intro" },
         {
-          id: "intro",
-          type: "info",
-          stage: "Abertura",
-          title: "Diagnóstico Estratégico",
-          text:
-            "Descubra quanto sua negócio pode crescer com tráfego pago estruturado.\n\n" +
-            "⚠️ Este diagnóstico é indicado para donos que desejam crescimento real e previsível.",
-          cta: { label: "Quero analisar meu restaurante", next: "dor" },
+          id: "nome",       type: "text",
+          question: "Qual seu nome?",
+          placeholder: "Digite seu nome completo",
+          inputType: "text", inputMode: "text",
+          key: "nome",
+          validate: (v) => v.trim().length >= 2 ? null : "Por favor, informe seu nome.",
+          next: () => "whatsapp",
         },
-
-        // 🔵 TELA 2 – DOR
         {
-          id: "dor",
-          type: "choice",
-          question: "Hoje, você sente que poderia vender mais se tivesse mais pedidos todos os dias?",
-          options: [
-            "Sim, principalmente em dias fracos",
-            "Sim, quero aumentar meu faturamento",
-            "Talvez",
-            "Não",
-          ],
-          key: "dor",
-          next: () => "pedidos_dia",
+          id: "whatsapp",   type: "text",
+          question: "Qual é seu número de WhatsApp?",
+          placeholder: "(XX) 9 XXXX-XXXX",
+          inputType: "tel", inputMode: "tel",
+          key: "whatsapp",
+          validate: (v) => v.replace(/\D/g,"").length >= 10 ? null : "Informe um número de WhatsApp válido.",
+          next: () => "instagram",
         },
-
-        // 🔵 TELA 3 – PEDIDOS
         {
-          id: "pedidos_dia",
-          type: "number",
-          stage: "Pedidos",
-          question: "Quantos pedidos por dia seu estabelecimento faz em média?",
-          key: "pedidos_dia",
-          min: 0,
-          max: 100000,
-          placeholder: "Ex.: 35",
-          next: () => "ticket",
-        },
-
-        // 🔵 TELA 4 – TICKET MÉDIO
-        {
-          id: "ticket",
-          type: "choice",
-          stage: "Ticket médio",
-          question: "Qual o ticket médio aproximado por pedido?",
-          options: ["Até R$ 40", "R$ 40 a R$ 60", "R$ 60 a R$ 80", "Acima de R$ 80"],
-          key: "ticket",
+          id: "instagram",  type: "text",
+          question: "Qual é o @ do Instagram da sua empresa?",
+          placeholder: "@suaempresa",
+          inputType: "text", inputMode: "text",
+          key: "instagram",
+          validate: (v) => v.trim().length >= 2 ? null : "Informe o @ do Instagram.",
           next: () => "faturamento",
         },
-
-        // 🔵 TELA 5 – FATURAMENTO (SEM EXCLUIR)
         {
-          id: "faturamento",
-          type: "choice",
-          stage: "Faturamento",
-          question: "Qual o faturamento médio mensal do seu estabelecimento?",
-          options: ["Até R$ 30 mil", "R$ 30 mil a R$ 60 mil", "R$ 60 mil a R$ 100 mil", "Acima de R$ 100 mil"],
+          id: "faturamento", type: "choice",
+          question: "Qual é o faturamento mensal da sua empresa?",
+          options: [
+            "R$0 a R$5.000",
+            "R$5.000 a R$10.000",
+            "R$10.000 a R$20.000",
+            "R$20.000 a R$50.000",
+            "Acima de R$100.000",
+          ],
           key: "faturamento",
-          next: () => "investir",
+          next: () => "email",
         },
-
-        // 🔵 TELA 6 – FILTRO PRINCIPAL (MENTALIDADE)
         {
-          id: "investir",
-          type: "choice",
-          stage: "Mentalidade",
-          question:
-            "Para gerar crescimento real com previsibilidade, é necessário investir em marketing.\n\n" +
-            "Você estaria disposto a investir pelo menos 10% por mês do seu faturamento para escalar seu negócio?",
-          options: ["Sim, estou pronto para crescer", "Talvez, quero entender melhor", "Não tenho interesse em investir"],
-          key: "investir",
-          next: (a) => (a === "Não tenho interesse em investir" ? "exit" : "result"),
+          id: "email",      type: "text",
+          question: "Qual é o seu melhor email?",
+          placeholder: "seu@email.com",
+          inputType: "email", inputMode: "email",
+          key: "email",
+          validate: (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()) ? null : "Informe um e-mail válido.",
+          next: () => "site",
         },
-
-        // 🔴 Saída elegante
         {
-          id: "exit",
-          type: "info",
-          stage: "Encerramento",
-          title: "Tudo certo 👍",
-          text:
-            "No momento, nossa estrutura é indicada para negócios que desejam crescimento ativo e investimento estratégico.\n\n" +
-            "Quando decidir investir para escalar, teremos prazer em ajudar.",
-          cta: { label: "Encerrar diagnóstico", next: "end" },
+          id: "site",       type: "text",
+          question: "Qual é o site da sua empresa?",
+          placeholder: "www.suaempresa.com.br",
+          inputType: "text", inputMode: "url",
+          key: "site",
+          optional: true,
+          validate: () => null,
+          next: () => "result",
         },
-
-        // Tela final forte
-        { id: "result", type: "result", mode: "default" },
-
-        // Final (apenas pra encerrar com botão WhatsApp)
-        { id: "end", type: "result", mode: "end_only" },
+        { id: "result", type: "result" },
       ];
 
-      // ===== State / Navigation
-      const state = {
-        answers: {},
-        history: [],
-        currentId: "intro",
-      };
+      const state = { answers: {}, history: [], currentId: "intro" };
 
-      function getStep(id) {
-        return steps.find((s) => s.id === id);
-      }
-
-      function computeNext(step, answerValue) {
-        if (!step) return null;
-        if (typeof step.next === "function") return step.next(answerValue);
+      function getStep(id) { return steps.find(s => s.id === id); }
+      function computeNext(step, val) {
+        if (typeof step.next === "function") return step.next(val);
         if (typeof step.next === "string") return step.next;
-        if (step.cta?.next) return step.cta.next;
         return null;
       }
 
-      // ===== UI Builders
-      function escapeHtml(str) {
-        return String(str).replace(/[&<>"']/g, (m) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[m]));
-      }
-
-      function badgeStage(stage) {
-        if (!stage) return "";
-        return `
-          <div class="mb-3 inline-flex items-center gap-2 rounded-full bg-white/5 px-3 py-1 text-xs font-semibold text-brand-white/75 ring-1 ring-brand-line">
-            <span class="h-2 w-2 rounded-full bg-brand-blue"></span>
-            ${escapeHtml(stage)}
-          </div>
-        `;
-      }
-
-      function topBanner() {
-        return `
-              <div class="mb-4 rounded-2xl bg-green-500/10 px-4 py-3 ring-1 ring-green-500/30">
-                <div class="flex items-start gap-3">
-                  <span class="mt-0.5 grid h-6 w-6 place-items-center rounded-xl bg-green-500 text-white text-xs font-extrabold">
-                    !
-                  </span>
-                  <p class="text-xs font-extrabold tracking-wide text-green-400 leading-snug">
-                    ${escapeHtml(TOP_BANNER_TEXT)}
-                  </p>
-                </div>
-              </div>
-            `;
-      }
-
-      function cardShell({ stage, title, question, helper, bodyHtml }) {
-        return `
-          ${topBanner()}
-          ${badgeStage(stage)}
-          ${title ? `<h1 class="text-xl font-extrabold tracking-tight">${escapeHtml(title)}</h1>` : ""}
-          ${question ? `<h2 class="mt-2 text-lg font-bold leading-snug whitespace-pre-line">${escapeHtml(question)}</h2>` : ""}
-          ${
-            helper
-              ? `<p class="mt-2 text-sm text-brand-white/70 leading-relaxed whitespace-pre-line">${escapeHtml(helper)}</p>`
-              : ""
-          }
-          ${bodyHtml || ""}
-        `;
-      }
-
-      function primaryButton(label, extra = "") {
-        return `
-          <button
-            type="button"
-            class="w-full rounded-2xl bg-brand-blue px-4 py-3 text-sm font-extrabold text-brand-bg shadow-glow hover:bg-brand-blue2 active:scale-[.99] transition"
-            ${extra}
-          >
-            ${escapeHtml(label)}
-          </button>
-        `;
-      }
-
-      function optionButton(label, idx) {
-        return `
-          <button
-            type="button"
-            data-opt="${escapeHtml(label)}"
-            class="group w-full rounded-2xl bg-brand-surface2/70 px-4 py-3 text-left text-sm font-bold text-brand-white ring-1 ring-brand-line hover:bg-white/5 active:scale-[.99] transition"
-          >
-            <div class="flex items-center justify-between gap-3">
-              <span class="leading-snug">${escapeHtml(label)}</span>
-              <span class="grid h-7 w-7 place-items-center rounded-xl bg-white/5 text-xs font-extrabold text-brand-white/70 ring-1 ring-brand-line group-hover:bg-white/10">
-                ${idx + 1}
-              </span>
-            </div>
-          </button>
-        `;
-      }
-
-      function inputField({ type = "number", placeholder = "", value = "", min, max }) {
-        const minAttr = min !== undefined ? `min="${min}"` : "";
-        const maxAttr = max !== undefined ? `max="${max}"` : "";
-        return `
-          <input
-            id="stepInput"
-            type="${type}"
-            value="${escapeHtml(value)}"
-            placeholder="${escapeHtml(placeholder)}"
-            ${minAttr}
-            ${maxAttr}
-            class="mt-4 w-full rounded-2xl bg-brand-surface2/70 px-4 py-3 text-base font-semibold text-brand-white placeholder:text-brand-white/40 ring-1 ring-brand-line focus:outline-none focus:ring-2 focus:ring-brand-blue"
-            autocomplete="off"
-            inputmode="numeric"
-          />
-        `;
+      function esc(str) {
+        return String(str).replace(/[&<>"']/g,
+          m => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));
       }
 
       function makeWhatsAppUrl() {
-        const pedidos = state.answers.pedidos_dia ?? "";
-        const ticket = state.answers.ticket ?? "";
-        const faturamento = state.answers.faturamento ?? "";
-        const investir = state.answers.investir ?? "";
-        const dor = state.answers.dor ?? "";
-
+        const a = state.answers;
         const msg =
-          `Olá! Vim pelo Funil Premium da CZ Mídia.\n\n` +
-          `Minhas respostas:\n` +
-          `${dor ? `• Dor: ${dor}\n` : ""}` +
-          `${pedidos !== "" ? `• Pedidos/dia (média): ${pedidos}\n` : ""}` +
-          `${ticket ? `• Ticket médio: ${ticket}\n` : ""}` +
-          `${faturamento ? `• Faturamento: ${faturamento}\n` : ""}` +
-          `${investir ? `• Disposição de investimento: ${investir}\n` : ""}` +
-          `\nQuero garantir uma vaga para reunião e fazer o diagnóstico.`;
-
-        return `https://wa.me/${WHATS_NUMBER}?text=${encodeURIComponent(msg)}`;
+          "Olá! Vim pelo formulário da CZ Mídia.\n\n" +
+          "Minhas informações:\n" +
+          (a.nome       ? "• Nome: "        + a.nome        + "\n" : "") +
+          (a.whatsapp   ? "• WhatsApp: "    + a.whatsapp    + "\n" : "") +
+          (a.instagram  ? "• Instagram: "   + a.instagram   + "\n" : "") +
+          (a.faturamento? "• Faturamento: " + a.faturamento + "\n" : "") +
+          (a.email      ? "• Email: "       + a.email       + "\n" : "") +
+          (a.site       ? "• Site: "        + a.site        + "\n" : "") +
+          "\nGostaria de saber mais sobre o plano de crescimento.";
+        return "https://wa.me/" + WHATS_NUMBER + "?text=" + encodeURIComponent(msg);
       }
 
-      function whatsWideButton() {
-        const waUrl = makeWhatsAppUrl();
-        return `
-                <a
-                  href="${waUrl}"
-                  class="w-full rounded-2xl bg-green-700 px-4 py-3 text-center text-sm font-extrabold text-white shadow-lg hover:bg-green-600 active:scale-[.99] transition"
-                  target="_blank" rel="noopener"
-                >
-                  👉 GARANTIR VAGA NO WHATSAPP
-                </a>
-              `;
-      }
-
-      // ===== Render
       async function setCardHtml(html) {
         const card = $("card");
-        card.classList.remove("animate-enter", "animate-exit", "animate-shake");
+        card.classList.remove("animate-enter","animate-exit","animate-shake");
         card.classList.add("animate-exit");
-        await sleep(160);
+        await sleep(150);
         card.innerHTML = html;
         card.classList.remove("animate-exit");
         card.classList.add("animate-enter");
       }
 
+      const INPUT_STEPS = ["nome","whatsapp","instagram","faturamento","email","site"];
+      const TOTAL = INPUT_STEPS.length;
+
       function updateProgress() {
-        const label = $("progressLabel");
-        const bar = $("progressBar");
+        const idx = INPUT_STEPS.indexOf(state.currentId);
+        const pct = state.currentId === "intro"
+          ? 0
+          : state.currentId === "result"
+            ? 100
+            : Math.round(((idx) / TOTAL) * 100);
 
-        const answered = state.history.length;
-        const approxTotal = 6; // fixo pra esse funil
-        const pct = Math.min(100, Math.round(((answered + 1) / (approxTotal + 1)) * 100));
+        $("progressLabel").textContent =
+          state.currentId === "intro"   ? "Pronto para começar!" :
+          state.currentId === "result"  ? "Concluído 🎉"         :
+          "Progresso: " + pct + "%";
 
-        label.textContent = state.currentId === "intro" ? "Comece quando quiser" : `Progresso: ${pct}%`;
-        bar.style.width = `${pct}%`;
-
+        $("progressBar").style.width = pct + "%";
         $("btnBack").classList.toggle("invisible", state.history.length === 0);
         $("btnRestartTop").classList.toggle("hidden", state.currentId === "intro");
+      }
+
+      function stepCounter() {
+        const idx = INPUT_STEPS.indexOf(state.currentId);
+        if (idx < 0) return "";
+        return '<p class="mb-3 text-xs font-semibold text-brand-blue/80 uppercase tracking-widest">Pergunta ' + (idx+1) + ' de ' + TOTAL + '</p>';
+      }
+
+      function primaryBtn(label, attrs) {
+        return '<button type="button" class="w-full rounded-2xl bg-brand-blue px-4 py-3.5 text-sm font-extrabold text-brand-bg shadow-glow hover:bg-brand-blue2 active:scale-[.99] transition-all" ' + (attrs||"") + '>' + esc(label) + '</button>';
+      }
+
+      function optionBtn(label, idx) {
+        const letters = ["A","B","C","D","E"];
+        return '<button type="button" data-opt="' + esc(label) + '" class="group w-full rounded-2xl bg-brand-surface2/80 px-4 py-3.5 text-left text-sm font-semibold text-brand-white ring-1 ring-brand-line hover:ring-brand-blue/50 hover:bg-white/5 active:scale-[.99] transition-all"><div class="flex items-center gap-3"><span class="grid h-7 w-7 shrink-0 place-items-center rounded-xl bg-white/5 text-xs font-extrabold text-brand-white/60 ring-1 ring-brand-line group-hover:bg-brand-blue/15 group-hover:text-brand-blue group-hover:ring-brand-blue/40 transition-all">' + (letters[idx]||idx+1) + '</span><span class="leading-snug">' + esc(label) + '</span></div></button>';
+      }
+
+      function textInput(step, value) {
+        return '<input id="stepInput" type="' + step.inputType + '" inputmode="' + step.inputMode + '" value="' + esc(value) + '" placeholder="' + esc(step.placeholder) + '" class="mt-4 w-full rounded-2xl bg-brand-surface2/80 px-4 py-3.5 text-base font-semibold text-brand-white placeholder:text-brand-white/35 ring-1 ring-brand-line focus:outline-none focus:ring-2 focus:ring-brand-blue transition-all" autocomplete="off" />';
       }
 
       async function renderStep(id) {
         state.currentId = id;
         updateProgress();
-
         const step = getStep(id);
         if (!step) return;
 
-        if (step.type === "info") {
-          const bodyHtml = `
-            <p class="mt-3 whitespace-pre-line text-sm leading-relaxed text-brand-white/75">${escapeHtml(step.text)}</p>
-
-            <div class="mt-5 grid gap-2">
-              ${primaryButton(step.cta.label, `id="btnCta"`)}
-              ${whatsWideButton()}
-            </div>
-
-            <p class="mt-3 text-xs text-brand-white/45">*Clique no WhatsApp a qualquer momento para garantir sua vaga.</p>
-          `;
-
-          await setCardHtml(
-            cardShell({
-              stage: step.stage,
-              title: step.title,
-              bodyHtml,
-            })
-          );
-
-          $("btnCta").addEventListener("click", () => goNext(step, null, step.cta.next));
+        // INTRO
+        if (step.type === "intro") {
+          const html =
+            '<div class="text-center">' +
+            '<div class="mb-5 inline-flex items-center justify-center rounded-2xl bg-brand-blue/15 p-4 ring-1 ring-brand-blue/30 shadow-glow"><span class="text-4xl">🚀</span></div>' +
+            '<h1 class="text-2xl font-extrabold tracking-tight leading-snug">Falta pouco para destravar<br>as vendas da sua empresa!</h1>' +
+            '<p class="mt-4 text-sm leading-relaxed text-brand-white/70">Esse formulário nos ajuda a entender o cenário do seu negócio, pra que possamos te apresentar um <span class="font-bold text-brand-white">plano realista e eficiente</span> de crescimento com tráfego pago.</p>' +
+            '<div class="mt-4 inline-flex items-center gap-2 rounded-full bg-white/5 px-4 py-2 ring-1 ring-brand-line text-xs text-brand-white/70 font-semibold"><span>⏱</span><span>Leva menos de 2 minutos.</span></div>' +
+            '<div class="mt-6 grid gap-3">' + primaryBtn("Começar agora →", 'id="btnStart"') + '</div>' +
+            '<p class="mt-4 text-xs text-brand-white/40">🔒 Suas informações são 100% seguras e confidenciais.</p>' +
+            '</div>';
+          await setCardHtml(html);
+          $("btnStart").addEventListener("click", () => goNext(step, null, "nome"));
           return;
         }
 
+        // TEXT
+        if (step.type === "text") {
+          const current = state.answers[step.key] || "";
+          const html =
+            stepCounter() +
+            '<h2 class="text-xl font-extrabold leading-snug">' + esc(step.question) + '</h2>' +
+            textInput(step, current) +
+            (step.optional ? '<p class="mt-2 text-xs text-brand-white/40">Campo opcional — pode deixar em branco.</p>' : "") +
+            '<div class="mt-5 grid gap-3">' + primaryBtn("Continuar →", 'id="btnContinue"') + '</div>';
+          await setCardHtml(html);
+          const input = $("stepInput");
+          input.focus();
+          $("btnContinue").addEventListener("click", () => {
+            const val = input.value;
+            const err = step.validate ? step.validate(val) : null;
+            if (err) return shakeCard(err);
+            goNext(step, val.trim());
+          });
+          input.addEventListener("keydown", (e) => { if (e.key === "Enter") $("btnContinue").click(); });
+          return;
+        }
+
+        // CHOICE
         if (step.type === "choice") {
-          const bodyHtml = `
-            <div class="mt-5 grid gap-2">
-              ${step.options.map((o, i) => optionButton(o, i)).join("")}
-            </div>
-
-            <div class="mt-5 grid gap-2">
-              ${whatsWideButton()}
-            </div>
-
-            <p class="mt-3 text-xs text-brand-white/45">*Clique no WhatsApp para garantir sua vaga agora.</p>
-          `;
-
-          await setCardHtml(
-            cardShell({
-              stage: step.stage,
-              question: step.question,
-              helper: step.helper,
-              bodyHtml,
-            })
-          );
-
-          const card = $("card");
-          card.querySelectorAll("[data-opt]").forEach((btn) => {
+          const html =
+            stepCounter() +
+            '<h2 class="text-xl font-extrabold leading-snug">' + esc(step.question) + '</h2>' +
+            '<div class="mt-5 grid gap-2">' +
+            step.options.map((o,i) => optionBtn(o,i)).join("") +
+            '</div>';
+          await setCardHtml(html);
+          $("card").querySelectorAll("[data-opt]").forEach(btn => {
             btn.addEventListener("click", async () => {
               const val = btn.getAttribute("data-opt");
-              btn.classList.add("ring-2", "ring-brand-blue");
-              await sleep(140);
+              btn.classList.add("ring-2","ring-brand-blue","bg-brand-blue/10");
+              await sleep(150);
               goNext(step, val);
             });
           });
           return;
         }
 
-        if (step.type === "number") {
-          const current = state.answers[step.key] ?? "";
-          const bodyHtml = `
-            ${inputField({
-              type: "number",
-              placeholder: step.placeholder || "",
-              value: current,
-              min: step.min,
-              max: step.max,
-            })}
-
-            <div class="mt-4 grid gap-2">
-              ${primaryButton("Continuar", `id="btnContinue"`)}
-              ${whatsWideButton()}
-            </div>
-
-            <p class="mt-3 text-xs text-brand-white/45">*Clique no WhatsApp para garantir sua vaga agora.</p>
-          `;
-
-          await setCardHtml(
-            cardShell({
-              stage: step.stage,
-              question: step.question,
-              bodyHtml,
-            })
-          );
-
-          const input = $("stepInput");
-          input.focus();
-
-          $("btnContinue").addEventListener("click", () => {
-            const raw = input.value.trim();
-            if (!raw) return shakeCard("Informe um número para continuar.");
-            const num = Number(raw);
-            if (Number.isNaN(num)) return shakeCard("Número inválido.");
-            goNext(step, num);
-          });
-
-          input.addEventListener("keydown", (e) => {
-            if (e.key === "Enter") $("btnContinue").click();
-          });
-          return;
-        }
-
+        // RESULT
         if (step.type === "result") {
-          await renderResult(step);
+          await renderResult();
           return;
         }
+      }
+
+      async function renderResult() {
+        const waUrl = makeWhatsAppUrl();
+        const a = state.answers;
+        const firstName = a.nome ? ", " + a.nome.split(" ")[0] : "";
+
+        function row(icon, val) {
+          if (!val) return "";
+          return '<div class="flex items-center gap-2 text-sm"><span class="text-brand-blue">' + icon + '</span><span class="text-brand-white/80">' + esc(val) + '</span></div>';
+        }
+
+        const html =
+          '<div class="text-center">' +
+          '<div class="mb-5 inline-flex items-center justify-center rounded-2xl bg-green-500/15 p-4 ring-1 ring-green-500/30"><span class="text-4xl">🎉</span></div>' +
+          '<h1 class="text-2xl font-extrabold tracking-tight">Obrigado por responder' + esc(firstName) + '!</h1>' +
+          '<p class="mt-3 text-sm leading-relaxed text-brand-white/70">Em breve nossa equipe entrará em contato.</p>' +
+          '<div class="mt-5 rounded-2xl bg-white/5 p-4 ring-1 ring-brand-line text-left">' +
+          '<p class="text-xs font-semibold text-brand-white/50 uppercase tracking-wider mb-3">Suas respostas</p>' +
+          '<div class="grid gap-2">' +
+          row("👤", a.nome) +
+          row("📱", a.whatsapp) +
+          row("📸", a.instagram) +
+          row("💰", a.faturamento) +
+          row("✉️", a.email) +
+          row("🌐", a.site) +
+          '</div></div>' +
+          '<div class="mt-5 grid gap-3">' +
+          '<a href="' + waUrl + '" id="btnWhatsResult" class="flex items-center justify-center gap-2 w-full rounded-2xl bg-green-600 px-4 py-4 text-sm font-extrabold text-white shadow-lg hover:bg-green-500 active:scale-[.99] transition-all" target="_blank" rel="noopener">' +
+          '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>' +
+          'Falar com nossa equipe agora no WhatsApp' +
+          '</a>' +
+          '<button id="btnRestart" type="button" class="w-full rounded-2xl bg-white/5 px-4 py-3 text-sm font-semibold text-brand-white/70 ring-1 ring-brand-line hover:bg-white/10 active:scale-[.99] transition-all">Reiniciar formulário</button>' +
+          '</div></div>';
+
+        await setCardHtml(html);
+
+        // Envio silencioso para email via FormSubmit AJAX (não altera a tela)
+        fetch("https://formsubmit.co/ajax/cliffordztn@gmail.com", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+          },
+          body: JSON.stringify({
+            _subject: "Novo lead — Formulário CZ Mídia",
+            Nome: a.nome || "",
+            WhatsApp: a.whatsapp || "",
+            Instagram: a.instagram || "",
+            Faturamento: a.faturamento || "",
+            Email: a.email || "",
+            Site: a.site || "",
+            _template: "table"
+          })
+        }).catch(() => {}); // falha silenciosa — não impacta o usuário
+
+        if (typeof fbq !== "undefined") {
+          fbq("track", "Lead", { content_name: "Formulário CZ Mídia" });
+        }
+
+        $("btnRestart").addEventListener("click", restart);
       }
 
       async function shakeCard(msg) {
@@ -566,30 +451,26 @@
         card.classList.remove("animate-shake");
         void card.offsetWidth;
         card.classList.add("animate-shake");
-
+        const existing = card.querySelector(".error-toast");
+        if (existing) existing.remove();
         const toast = document.createElement("div");
-        toast.className =
-          "mt-4 rounded-2xl bg-white/5 px-4 py-3 text-sm font-semibold text-brand-white/80 ring-1 ring-brand-line";
+        toast.className = "error-toast mt-4 rounded-2xl bg-red-500/10 px-4 py-3 text-sm font-semibold text-red-400 ring-1 ring-red-500/30";
         toast.textContent = msg;
         card.appendChild(toast);
-        setTimeout(() => toast.remove(), 2400);
+        setTimeout(() => toast.remove(), 2600);
       }
 
-      // ===== Navigation
-      function goNext(step, value, forcedNextId = null) {
-        if (step.key) state.answers[step.key] = value;
-
-        const nextId = forcedNextId ?? computeNext(step, value);
+      function goNext(step, value, forcedNextId) {
+        if (step && step.key) state.answers[step.key] = value;
+        const nextId = forcedNextId != null ? forcedNextId : computeNext(step, value);
         if (!nextId) return;
-
-        state.history.push(step.id);
+        state.history.push(step ? step.id : "intro");
         renderStep(nextId);
       }
 
       function goBack() {
         if (!state.history.length) return;
-        const prevId = state.history.pop();
-        renderStep(prevId);
+        renderStep(state.history.pop());
       }
 
       function restart() {
@@ -599,126 +480,8 @@
         renderStep("intro");
       }
 
-      // ===== Result logic
-      function ticketToNumber(ticketStr) {
-        // usado só para cálculo simples do texto
-        if (!ticketStr) return 60;
-        if (ticketStr.includes("Até R$ 40")) return 40;
-        if (ticketStr.includes("R$ 40 a R$ 60")) return 50;
-        if (ticketStr.includes("R$ 60 a R$ 80")) return 70;
-        if (ticketStr.includes("Acima de R$ 80")) return 90;
-        return 60;
-      }
-
-      function estimateAddPedidos() {
-        // estimativa “copy” baseada em pedidos atuais
-        const p = state.answers.pedidos_dia;
-        if (typeof p !== "number") return 12;
-        if (p <= 10) return 10;
-        if (p <= 30) return 12;
-        if (p <= 60) return 15;
-        return 18;
-      }
-
-      async function renderResult(step) {
-        const mode = step.mode || "default";
-        const waUrl = makeWhatsAppUrl();
-
-        if (mode === "end_only") {
-          const bodyHtml = `
-            ${topBanner()}
-            <h1 class="text-xl font-extrabold tracking-tight">Diagnóstico encerrado ✅</h1>
-            <p class="mt-3 text-sm leading-relaxed text-brand-white/75">
-              Se quiser, você ainda pode clicar no WhatsApp e garantir uma vaga para conversar sobre o seu cenário.
-            </p>
-
-            <div class="mt-5 grid gap-2">
-              <a
-                  href="${waUrl}"
-                  class="w-full rounded-2xl bg-green-700 px-4 py-3 text-center text-sm font-extrabold text-white shadow-lg hover:bg-green-600 active:scale-[.99] transition"
-                  target="_blank" rel="noopener"
-                >
-                  👉 GARANTIR VAGA NO WHATSAPP
-                </a>
-
-              <button
-                id="btnRestart"
-                type="button"
-                class="w-full rounded-2xl bg-white/5 px-4 py-3 text-sm font-bold text-brand-white ring-1 ring-brand-line hover:bg-white/10 active:scale-[.99] transition"
-              >
-                Reiniciar diagnóstico
-              </button>
-            </div>
-          `;
-
-          await setCardHtml(bodyHtml);
-          $("btnRestart").addEventListener("click", restart);
-          return;
-        }
-
-        const ticketNum = ticketToNumber(state.answers.ticket);
-        const addPedidos = estimateAddPedidos();
-        const ganhoMensal = addPedidos * ticketNum * 30;
-
-        const bodyHtml = `
-          ${topBanner()}
-          ${badgeStage("Resultado")}
-          <h1 class="text-xl font-extrabold tracking-tight">Seu negócio pode estar deixando dinheiro na mesa 🍕</h1>
-
-          <p class="mt-3 text-sm leading-relaxed text-brand-white/75">
-            Com base nas suas respostas, seu negócio tem potencial para aumentar entre
-            <span class="font-extrabold text-brand-blue">10 a 20 pedidos por dia</span>
-            com uma estrutura correta de tráfego pago.
-          </p>
-
-          <div class="mt-4 rounded-2xl bg-white/5 p-4 ring-1 ring-brand-line">
-            <p class="text-xs font-semibold text-brand-white/65">Estimativa de impacto</p>
-            <p class="mt-1 text-sm text-brand-white/80 leading-relaxed">
-              Se seu ticket médio for de <span class="font-extrabold text-brand-white">${moneyBR(ticketNum)}</span>,
-              isso pode representar aproximadamente:
-            </p>
-            <p class="mt-2 text-2xl font-extrabold text-brand-blue">${moneyBR(ganhoMensal)}</p>
-            <p class="mt-1 text-xs text-brand-white/55">*Estimativa simples (30 dias). Ajustamos na reunião.</p>
-          </div>
-
-          <p class="mt-4 text-sm leading-relaxed text-brand-white/75">
-            A diferença entre estabelecimentos que crescem e as que estagnam está na previsibilidade.
-          </p>
-
-          <div class="mt-4 rounded-2xl bg-white/5 p-4 ring-1 ring-brand-line">
-            <p class="text-sm font-extrabold text-brand-white">
-              Você está a 1 decisão de transformar seu negócio em uma máquina constante de pedidos.
-            </p>
-          </div>
-
-          <div class="mt-5 grid gap-2">
-            <a
-                  href="${waUrl}"
-                  class="w-full rounded-2xl bg-green-700 px-4 py-3 text-center text-sm font-extrabold text-white shadow-lg hover:bg-green-600 active:scale-[.99] transition"
-                  target="_blank" rel="noopener"
-                >
-                  👉 GARANTIR VAGA NO WHATSAPP
-                </a>
-
-            <button
-              id="btnRestart"
-              type="button"
-              class="w-full rounded-2xl bg-white/5 px-4 py-3 text-sm font-bold text-brand-white ring-1 ring-brand-line hover:bg-white/10 active:scale-[.99] transition"
-            >
-              Reiniciar diagnóstico
-            </button>
-          </div>
-        `;
-
-        await setCardHtml(bodyHtml);
-        $("btnRestart").addEventListener("click", restart);
-      }
-
-      // ===== Events
       $("btnBack").addEventListener("click", goBack);
       $("btnRestartTop").addEventListener("click", restart);
-
-      // ===== Init
       $("year").textContent = new Date().getFullYear();
       renderStep("intro");
     </script>
