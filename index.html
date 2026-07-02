@@ -371,6 +371,15 @@
             btn.addEventListener("click", async () => {
               const val = btn.getAttribute("data-opt");
               btn.classList.add("ring-2","ring-brand-blue","bg-brand-blue/10");
+
+              // Pixel: dispara evento para leads qualificados (faturamento >= R$20k)
+              if (step.id === "faturamento") {
+                const qualificados = ["R$20.000 a R$50.000", "Acima de R$100.000"];
+                if (qualificados.includes(val) && typeof fbq !== "undefined") {
+                  fbq("trackCustom", "LeadQualificado", { faturamento: "20mil_ou_mais" });
+                }
+              }
+
               await sleep(150);
               goNext(step, val);
             });
