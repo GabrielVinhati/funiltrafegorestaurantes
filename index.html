@@ -374,9 +374,11 @@
 
               // Pixel: dispara evento para leads qualificados (faturamento >= R$20k)
               if (step.id === "faturamento") {
-                const qualificados = ["R$20.000 a R$50.000", "Acima de R$100.000"];
-                if (qualificados.includes(val) && typeof fbq !== "undefined") {
+                const isQualificado = val.includes("20.000") || val.includes("100.000");
+                console.log("[Pixel] faturamento selecionado:", val, "| qualificado:", isQualificado);
+                if (isQualificado && typeof fbq !== "undefined") {
                   fbq("trackCustom", "LeadQualificado", { faturamento: "20mil_ou_mais" });
+                  console.log("[Pixel] LeadQualificado disparado!");
                 }
               }
 
